@@ -1,7 +1,7 @@
 /*
-Template Name: Admin Pro Admin
-Author: Wrappixel
-Email: niravjoshi87@gmail.com
+Template Name: Web Store
+Author: Wilson Torres
+Email:   
 File: scss
 */
 /**
@@ -17,9 +17,9 @@ File: scss
  *	8. Custom Templates
  */
 /*
-Template Name: Admin Pro Admin
-Author: Wrappixel
-Email: niravjoshi87@gmail.com
+Template Name: Web Store
+Author: Wilson Torres
+Email:   
 File: scss
 */
 /*Theme Colors*/
@@ -28,9 +28,9 @@ File: scss
 /*Normal Color*/
 /*Extra Variable*/
 /*
-Template Name: Admin Pro Admin
-Author: Wrappixel
-Email: niravjoshi87@gmail.com
+Template Name: Web Store
+Author: Wilson Torres
+Email:   
 File: scss
 */
 /**
@@ -744,9 +744,9 @@ Layouts
   margin: 0 auto; }
 
 /*
-Template Name: Admin Pro Admin
-Author: Wrappixel
-Email: niravjoshi87@gmail.com
+Template Name: Web Store
+Author: Wilson Torres
+Email:   
 File: scss
 */
 /*******************
@@ -958,15 +958,15 @@ When click on sidebar toggler and also for tablet
     left: 0px; } }
 
 /*
-Template Name: Admin pro Admin
-Author: Wrappixel
-Email: niravjoshi87@gmail.com
+Template Name: Web Store
+Author: Wilson Torres
+Email:   
 File: scss
 */
 /*
-Template Name: Admin Pro Admin
-Author: Wrappixel
-Email: niravjoshi87@gmail.com
+Template Name: Web Store
+Author: Wilson Torres
+Email:   
 File: scss
 */
 /*Theme Colors*/
@@ -1528,6 +1528,17 @@ ul#themecolors {
   background: -o-linear-gradient(left, #263238 0%, #263238 23%, #56c0d8 23%, #56c0d8 99%);
   background: linear-gradient(to right, #263238 0%, #263238 23%, #56c0d8 23%, #56c0d8 99%); }
 
+  .custom-dark-theme {
+    background: #263238;
+    /* Old browsers */
+    background: -moz-linear-gradient(left, #263238 0%, #263238 23%, chocolate 23%, chocolate 99%);
+    /* FF3.6-15 */
+    background: -webkit-linear-gradient(left, #263238 0%, #263238 23%, chocolate 23%, chocolate 99%);
+    /* Chrome10-25,Safari5.1-6 */
+    background: -webkit-gradient(linear, left top, right top, from(#263238), color-stop(23%, #263238), color-stop(23%, chocolate), color-stop(99%, chocolate));
+    background: -o-linear-gradient(left, #263238 0%, #263238 23%, chocolate 23%, chocolate 99%);
+    background: linear-gradient(to right, #263238 0%, #263238 23%, chocolate 23%, chocolate 99%); }
+
 .red-dark-theme {
   background: #263238;
   /* Old browsers */
@@ -1776,15 +1787,15 @@ Notification page Jquery toaster
   color: #ffffff; }
 
 /*
-Template Name: Admin pro Admin
-Author: Wrappixel
-Email: niravjoshi87@gmail.com
+Template Name: Web Store
+Author: Wilson Torres
+Email:   
 File: scss
 */
 /*
-Template Name: Admin Pro Admin
-Author: Wrappixel
-Email: niravjoshi87@gmail.com
+Template Name: Web Store
+Author: Wilson Torres
+Email:   
 File: scss
 */
 /*Theme Colors*/
@@ -1868,15 +1879,15 @@ Pagination
   color: rgba(120, 130, 140, 0.13); }
 
 /*
-Template Name: Admin pro Admin
-Author: Wrappixel
-Email: niravjoshi87@gmail.com
+Template Name: Web Store
+Author: Wilson Torres
+Email:   
 File: scss
 */
 /*
-Template Name: Admin Pro Admin
-Author: Wrappixel
-Email: niravjoshi87@gmail.com
+Template Name: Web Store
+Author: Wilson Torres
+Email:   
 File: scss
 */
 /*Theme Colors*/
@@ -2517,15 +2528,15 @@ Buttons
   display: none; }
 
 /*
-Template Name: Admin pro Admin
-Author: Wrappixel
-Email: niravjoshi87@gmail.com
+Template Name: Web Store
+Author: Wilson Torres
+Email:   
 File: scss
 */
 /*
-Template Name: Admin Pro Admin
-Author: Wrappixel
-Email: niravjoshi87@gmail.com
+Template Name: Web Store
+Author: Wilson Torres
+Email:   
 File: scss
 */
 /*Theme Colors*/
@@ -3991,15 +4002,15 @@ input[type=checkbox]:not(:disabled).tabbed:focus ~ .lever::after {
   border-color: #06d79c; }
 
 /*
-Template Name: Admin pro Admin
-Author: Wrappixel
-Email: niravjoshi87@gmail.com
+Template Name: Web Store
+Author: Wilson Torres
+Email:   
 File: scss
 */
 /*
-Template Name: Admin Pro Admin
-Author: Wrappixel
-Email: niravjoshi87@gmail.com
+Template Name: Web Store
+Author: Wilson Torres
+Email:   
 File: scss
 */
 /*Theme Colors*/
@@ -4495,15 +4506,15 @@ Table-Jsgrid table
   padding: 0.5em 1em !important; }
 
 /*
-Template Name: Admin pro Admin
-Author: Wrappixel
-Email: niravjoshi87@gmail.com
+Template Name: Web Store
+Author: Wilson Torres
+Email:   
 File: scss
 */
 /*
-Template Name: Admin Pro Admin
-Author: Wrappixel
-Email: niravjoshi87@gmail.com
+Template Name: Web Store
+Author: Wilson Torres
+Email:   
 File: scss
 */
 /*Theme Colors*/
@@ -4623,15 +4634,15 @@ File: scss
   background-color: #398bf7; }
 
 /*
-Template Name: Admin Pro Admin
-Author: Wrappixel
-Email: niravjoshi87@gmail.com
+Template Name: Web Store
+Author: Wilson Torres
+Email:   
 File: scss
 */
 /*
-Template Name: Admin Pro Admin
-Author: Wrappixel
-Email: niravjoshi87@gmail.com
+Template Name: Web Store
+Author: Wilson Torres
+Email:   
 File: scss
 */
 /*******************
@@ -5386,9 +5397,9 @@ File: scss
         box-shadow: 0 2px 15px rgba(0, 0, 0, 0.2); }
 
 /*
-Template Name: Admin Pro Admin
-Author: Wrappixel
-Email: niravjoshi87@gmail.com
+Template Name: Web Store
+Author: Wilson Torres
+Email:   
 File: scss
 */
 @media (min-width: 1600px) {
@@ -5646,9 +5657,9 @@ File: scss
   color: #ffffff; }
 
 /*
-Template Name: Admin Pro Admin
-Author: Wrappixel
-Email: niravjoshi87@gmail.com
+Template Name: Web Store
+Author: Wilson Torres
+Email:   
 File: scss
 */
 /*============================================================== 

@@ -1,7 +1,7 @@
 /*
 Template Name: Material Pro admin
-Author: Wrappixel
-Email: niravjoshi87@gmail.com
+Author: Wilson Torres
+Email:   
 File: js
 */
 $(function() {
