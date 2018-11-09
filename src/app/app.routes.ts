@@ -2,22 +2,12 @@
 import { RouterModule, Routes } from '@angular/router'
 
 // componentes para rutas principales
-import { HomeComponent } from './pages/home/home.component';
 import { LoginComponent } from './login/login.component';
-import { NopagefoundComponent } from './nopagefound/nopagefound.component';
-import { PagesComponent } from './pages/pages.component';
 import { RegisterComponent } from './login/register.component';
+import { NopagefoundComponent } from './shared/nopagefound/nopagefound.component';
 
 const appRoutes: Routes = [
-    {path: '', component: PagesComponent}, // ruta principal
-    {
-        path: '',
-        component: PagesComponent,
-        children: [
-            {path: 'home', component: HomeComponent},
-            {path: '', redirectTo: '/home', pathMatch: 'full'},
-        ]
-    },
+    // ruta principal
     {path: 'login', component: LoginComponent},
     {path: 'register', component: RegisterComponent},
     {path: '**', component: NopagefoundComponent},
