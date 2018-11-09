@@ -752,13 +752,25 @@ ul#themecolors li a.working:before {
 .custom-dark-theme {
   background: #263238;
   /* Old browsers */
-  background: -moz-linear-gradient(left, #263238 0%, #263238 23%, #56c0d8 23%, #56c0d8 99%);
+  background: -moz-linear-gradient(left, #263238 0%, #263238 23%, chocolate 23%, chocolate 99%);
   /* FF3.6-15 */
-  background: -webkit-linear-gradient(left, #263238 0%, #263238 23%, #56c0d8 23%, #56c0d8 99%);
+  background: -webkit-linear-gradient(left, #263238 0%, #263238 23%, chocolate 23%, chocolate 99%);
   /* Chrome10-25,Safari5.1-6 */
   background: -webkit-gradient(linear, left top, right top, from(#263238), color-stop(23%, #263238), color-stop(23%, #56c0d8), color-stop(99%, #56c0d8));
   background: -o-linear-gradient(left, #263238 0%, #263238 23%, chocolate 23%, chocolate 99%);
   background: linear-gradient(to right, #263238 0%, #263238 23%, chocolate 23%, chocolate 99%);
+}
+
+.custom-blue-theme {
+  background: #398bf7;
+  /* Old browsers */
+  background: -moz-linear-gradient(left, #398bf7 0%, #398bf7 23%, beige 23%, beige 99%);
+  /* FF3.6-15 */
+  background: -webkit-linear-gradient(left, #398bf7 0%, #398bf7 23%, beige 23%, beige 99%);
+  /* Chrome10-25,Safari5.1-6 */
+  background: -webkit-gradient(linear, left top, right top, from(#398bf7), color-stop(23%, #398bf7), color-stop(23%, beige), color-stop(99%, beige));
+  background: -o-linear-gradient(left, #398bf7 0%, #398bf7 23%, beige 23%, beige 99%);
+  background: linear-gradient(to right, #398bf7 0%, #398bf7 23%, beige 23%, beige 99%);
 }
 
 .red-dark-theme {
