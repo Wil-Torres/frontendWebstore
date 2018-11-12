@@ -10,9 +10,8 @@ import { PagesModule } from './pages/pages.module';
 import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './login/register.component';
-import { NopagefoundComponent } from "./shared/nopagefound/nopagefound.component";
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { SettingsService } from './services/settings/settings.service';
+import { ServiceModule } from './services/service.module';
 
 
 
@@ -27,9 +26,10 @@ import { SettingsService } from './services/settings/settings.service';
     APP_ROUTES,
     PagesModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    ServiceModule
   ],
-  providers: [SettingsService],
+  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
