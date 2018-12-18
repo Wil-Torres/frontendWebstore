@@ -2,6 +2,7 @@ import { RouterModule, Routes  } from "@angular/router";
 import { PagesComponent } from "./pages.component";
 import { HomeComponent } from "./home/home.component";
 import { AccountSettingComponent } from "./account-setting/account-setting.component";
+import { MarcaListaComponent } from "./mantenimiento/marca/marca-lista.component";
 const pagesRoutes: Routes = [
     {
         path: '',
@@ -9,6 +10,9 @@ const pagesRoutes: Routes = [
         children: [
             {path: 'home', component: HomeComponent, data:{titulo: 'Home'}},
             {path: 'account-settings', component: AccountSettingComponent, data:{titulo: 'Account Settings'}},
+            {path: 'lista-marcas', component: MarcaListaComponent, data:{titulo: 'Marca'}},
+            {path: 'nueva-marca', component: MarcaListaComponent, data:{titulo: 'Marca'}},
+            {path: 'edicion-marca', component: MarcaListaComponent, data:{titulo: 'Marca'}},
             {path: '', redirectTo: '/home', pathMatch: 'full'},
         ]
     },

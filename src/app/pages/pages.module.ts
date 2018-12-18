@@ -4,17 +4,26 @@ import { PagesComponent } from "./pages.component";
 import { SharedModule } from "../shared/shared.module";
 import { PAGES_ROUTES } from "./pages.routes";
 import { AccountSettingComponent } from './account-setting/account-setting.component';
+import { MarcaListaComponent } from './mantenimiento/marca/marca-lista.component';
+import { MarcaNuevoComponent } from './mantenimiento/marca/marca-nuevo.component';
+import { MarcaEdicionComponent } from './mantenimiento/marca/marca-edicion.component';
 
 @NgModule({
     declarations: [
         HomeComponent,
         PagesComponent,
-        AccountSettingComponent
+        AccountSettingComponent,
+        MarcaListaComponent,
+        MarcaNuevoComponent,
+        MarcaEdicionComponent
     ],
     exports: [
         HomeComponent,
         PagesComponent,
-        AccountSettingComponent
+        AccountSettingComponent,
+        MarcaListaComponent,
+        MarcaNuevoComponent,
+        MarcaEdicionComponent
     ],
     imports: [
         SharedModule,

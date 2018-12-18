@@ -8,6 +8,7 @@ import { Component, OnInit } from '@angular/core';
 export class EncabezadoPaginaComponent implements OnInit {
 
   titulos: any = {};
+  
 
   constructor() { }
 
