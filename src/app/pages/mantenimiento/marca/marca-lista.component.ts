@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-marca-lista',
@@ -7,7 +8,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MarcaListaComponent implements OnInit {
 
-  constructor() { }
+  constructor(public router: Router) { }
 
   ngOnInit() {
   }
@@ -17,7 +18,7 @@ export class MarcaListaComponent implements OnInit {
   }
 
   edicion () {
-    alert('hola Edicion');
+    this.router.navigate(['/edicion-marca'])
   }
 
 }

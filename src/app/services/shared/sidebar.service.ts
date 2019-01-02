@@ -9,7 +9,7 @@ export class SidebarService {
       titulo: 'Mantenimiento',
       icono: 'mdi mdi-gauge',
       submenu: [
-        {titulo: 'Marca', url: '/home'},
+        {titulo: 'Marca', url: '/lista-marcas'},
         {titulo: 'Categoria', url: ''},
         {titulo: 'Medida', url: ''},
         {titulo: 'Producto', url: ''},

@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-encabezado-pagina',
@@ -8,13 +9,19 @@ import { Component, OnInit } from '@angular/core';
 export class EncabezadoPaginaComponent implements OnInit {
 
   titulos: any = {};
+  @Input('optNew') public etiquetaNuevo:string= '';
   
 
-  constructor() { }
+  constructor(public router: Router) { }
 
   ngOnInit() {
     this.titulos.tituloLista = 'Listado de Marcas';
     this.titulos.subtituloLista = 'Lista todas las marcas asociadas a un producto determinado';
   }
+  nuevo() {
+    this.router.navigate([`/${this.etiquetaNuevo}`])
+
+  }
+
 
 }

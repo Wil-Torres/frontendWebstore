@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-marca-nuevo',
@@ -6,6 +7,9 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./marca-nuevo-edicion.component.css']
 })
 export class MarcaNuevoComponent implements OnInit {
+  estado: string = 'Nuevo';
+  objeto: any = {}
+  marcas: Observable<any[]>;
 
   constructor() { }
 
