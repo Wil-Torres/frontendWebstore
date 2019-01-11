@@ -20,7 +20,18 @@ export class EncabezadoPaginaComponent implements OnInit {
   }
   nuevo() {
     this.router.navigate([`/${this.etiquetaNuevo}`])
+  }
 
+  guardar() {
+    alert('guardar nuevo o edicion')
+  }
+
+  editar() {
+    alert('editando registro')
+  }
+
+  borrar() {
+    alert('borrando registro')
   }
 
 

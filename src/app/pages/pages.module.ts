@@ -7,6 +7,7 @@ import { AccountSettingComponent } from './account-setting/account-setting.compo
 import { MarcaListaComponent } from './mantenimiento/marca/marca-lista.component';
 import { MarcaNuevoComponent } from './mantenimiento/marca/marca-nuevo.component';
 import { MarcaEdicionComponent } from './mantenimiento/marca/marca-edicion.component';
+import { FormsModule } from "@angular/forms";
 
 @NgModule({
     declarations: [
@@ -27,7 +28,8 @@ import { MarcaEdicionComponent } from './mantenimiento/marca/marca-edicion.compo
     ],
     imports: [
         SharedModule,
-        PAGES_ROUTES
+        PAGES_ROUTES,
+        FormsModule
     ]
 })
 

@@ -1,31 +1,23 @@
- {{estado}}
+{{estado}}
 
-<div class="container">
+
+<form>
+  <app-encabezado-pagina optNew='nueva-marca'></app-encabezado-pagina>
   <div class="row">
-    <div class="col-md-12 col-xs-12 col-sm-12">
-      <div class="card mt-4">
-        <div class="card-body">
-          <div class="form-group">
-            <label for="descripcionMarca">Marca</label>
-            <div class="input-group">
-              <span class="input-group-btn">
-                <input class="form-control gt-spinner-off" type="number" id="codigo" ">
-              </span>
-              <span class="input-group-btn"></span>
-              <input id="descripcionMarca" type="text" 
-                tabindex="-1">
-              <span class="input-group-btn">
-                <button type="button" class="btn btn-default" data-toggle="tooltip" title="Limpiar" tabindex="-1">
-                  <i class="fas fa-sync-alt"></i>
-                </button>
-                <button type="button" class="btn btn-primary" (click)="guardar()" data-toggle="tooltip" title="guardar" tabindex="-1">
-                  <i class="fas fa-search"></i>
-                </button>
-              </span>
-            </div>
-          </div>
-        </div>
+    <div class="col-sm-12 col-md-2 col-lg-2">
+      <div class="form-group">
+        <label for="codigoMarca">Código</label>
+        <input type="text" class="form-control" id="codigoMarca" placeholder="Ingrese codigo Marca"
+        [(ngModel)]="objeto.codigo" [ngModelOptions]="{standalone: true}">
+        <small id="codigoHelp" class="form-text text-muted">Debe ingresar un codigo alfanumerico que identifique la marca.</small>
+      </div>
+    </div>
+    <div class="col-sm-12 col-md-10 col-lg-10">
+      <div class="form-group">
+        <label for="descripcionMarca">Descripción</label>
+        <input type="text" class="form-control" id="descripcionMarca" placeholder="Ingrese descripción de marca"
+        [(ngModel)]="objeto.descripcion" [ngModelOptions]="{standalone: true}">
       </div>
     </div>
   </div>
-</div>
+</form>

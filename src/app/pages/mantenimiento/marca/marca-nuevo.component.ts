@@ -9,11 +9,16 @@ import { Observable } from 'rxjs';
 export class MarcaNuevoComponent implements OnInit {
   estado: string = 'Nuevo';
   objeto: any = {}
-  marcas: Observable<any[]>;
 
   constructor() { }
 
   ngOnInit() {
   }
+
+  guardar () {
+    alert('hola');
+  }
+
+  validar () {}
 
 }
