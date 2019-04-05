@@ -24,6 +24,13 @@ export class SidebarService {
         {titulo: 'Salidas', url: ''},
         {titulo: 'Kardex', url: ''}
       ]
+    },
+    {
+      titulo: 'Configuracion',
+      icono: 'mdi mdi-settings',
+      submenu: [
+        {titulo: 'Configurar Tienda', url: '/configuracion'},
+      ]
     }
   ]
 

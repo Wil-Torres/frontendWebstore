@@ -5,6 +5,7 @@ import { AccountSettingComponent } from "./account-setting/account-setting.compo
 import { MarcaListaComponent } from "./mantenimiento/marca/marca-lista.component";
 import { MarcaNuevoComponent } from "./mantenimiento/marca/marca-nuevo.component";
 import { MarcaEdicionComponent } from "./mantenimiento/marca/marca-edicion.component";
+import { TiendaComponent } from "./configuracion/tienda/tienda.component";
 const pagesRoutes: Routes = [
     {
         path: '',
@@ -15,6 +16,7 @@ const pagesRoutes: Routes = [
             {path: 'lista-marcas', component: MarcaListaComponent, data:{titulo: 'Marca'}},
             {path: 'nueva-marca', component: MarcaNuevoComponent, data:{titulo: 'Marca'}},
             {path: 'edicion-marca', component: MarcaEdicionComponent, data:{titulo: 'Marca'}},
+            {path: 'configuracion', component: TiendaComponent, data:{titulo: 'Configuracion Tienda'}},
             {path: '', redirectTo: '/home', pathMatch: 'full'},
         ]
     },
