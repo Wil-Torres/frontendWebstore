@@ -2,10 +2,9 @@ import { RouterModule, Routes  } from "@angular/router";
 import { PagesComponent } from "./pages.component";
 import { HomeComponent } from "./home/home.component";
 import { AccountSettingComponent } from "./account-setting/account-setting.component";
-import { MarcaListaComponent } from "./mantenimiento/marca/marca-lista.component";
-import { MarcaNuevoComponent } from "./mantenimiento/marca/marca-nuevo.component";
-import { MarcaEdicionComponent } from "./mantenimiento/marca/marca-edicion.component";
 import { TiendaComponent } from "./configuracion/tienda/tienda.component";
+import { MarcaListaComponent } from './mantenimiento/marca/marca-lista.component';
+import { MarcaNuevoEdicionComponent } from "./mantenimiento/marca/marca-nuevo-edicion.component";
 const pagesRoutes: Routes = [
     {
         path: '',
@@ -13,9 +12,9 @@ const pagesRoutes: Routes = [
         children: [
             {path: 'home', component: HomeComponent, data:{titulo: 'Home'}},
             {path: 'account-settings', component: AccountSettingComponent, data:{titulo: 'Account Settings'}},
-            {path: 'lista-marcas', component: MarcaListaComponent, data:{titulo: 'Marca'}},
-            {path: 'nueva-marca', component: MarcaNuevoComponent, data:{titulo: 'Marca'}},
-            {path: 'edicion-marca', component: MarcaEdicionComponent, data:{titulo: 'Marca'}},
+            {path: 'marcas/lista-marcas', component: MarcaListaComponent, data:{titulo: 'Marca'}},
+            {path: 'marcas/nueva-marca', component: MarcaNuevoEdicionComponent, data:{titulo: 'Marca'}},
+            {path: 'marcas/edicion-marca/:id', component: MarcaNuevoEdicionComponent},
             {path: 'configuracion', component: TiendaComponent, data:{titulo: 'Configuracion Tienda'}},
             {path: '', redirectTo: '/home', pathMatch: 'full'},
         ]

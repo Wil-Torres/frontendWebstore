@@ -8,6 +8,8 @@ import { CommonModule } from "@angular/common";
 import { EncabezadoPaginaComponent } from './componentes/encabezado-pagina/encabezado-pagina.component';
 import { PaginacionComponent } from './componentes/paginacion/paginacion.component';
 import { BusquedaListaComponent } from './componentes/busqueda-lista/busqueda-lista.component';
+import { PaginationModule } from "ngx-bootstrap/pagination";
+import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 
 @NgModule({
     declarations: [
@@ -30,7 +32,10 @@ import { BusquedaListaComponent } from './componentes/busqueda-lista/busqueda-li
     ],
     imports:[
         RouterModule,
-        CommonModule
+        FormsModule,
+        CommonModule,
+        ReactiveFormsModule,
+        PaginationModule.forRoot(),
     ]
 })
 export class SharedModule {}

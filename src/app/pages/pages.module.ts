@@ -1,14 +1,15 @@
 import { NgModule } from "@angular/core";
 import { HomeComponent } from "./home/home.component";
 import { PagesComponent } from "./pages.component";
-import { SharedModule } from "../shared/shared.module";
-import { PAGES_ROUTES } from "./pages.routes";
 import { AccountSettingComponent } from './account-setting/account-setting.component';
 import { MarcaListaComponent } from './mantenimiento/marca/marca-lista.component';
-import { MarcaNuevoComponent } from './mantenimiento/marca/marca-nuevo.component';
-import { MarcaEdicionComponent } from './mantenimiento/marca/marca-edicion.component';
+import { MarcaNuevoEdicionComponent } from "./mantenimiento/marca/marca-nuevo-edicion.component";
+import { TiendaComponent } from "./configuracion/tienda/tienda.component";
+import { ReactiveFormsModule } from "@angular/forms";
 import { FormsModule } from "@angular/forms";
-import { TiendaComponent } from './configuracion/tienda/tienda.component';
+import { PAGES_ROUTES } from "./pages.routes";
+import { SharedModule } from "../shared/shared.module";
+import { CommonModule } from "@angular/common";
 
 @NgModule({
     declarations: [
@@ -16,8 +17,7 @@ import { TiendaComponent } from './configuracion/tienda/tienda.component';
         PagesComponent,
         AccountSettingComponent,
         MarcaListaComponent,
-        MarcaNuevoComponent,
-        MarcaEdicionComponent,
+        MarcaNuevoEdicionComponent,
         TiendaComponent
     ],
     exports: [
@@ -25,13 +25,15 @@ import { TiendaComponent } from './configuracion/tienda/tienda.component';
         PagesComponent,
         AccountSettingComponent,
         MarcaListaComponent,
-        MarcaNuevoComponent,
-        MarcaEdicionComponent
+        MarcaNuevoEdicionComponent,
+        TiendaComponent
     ],
     imports: [
         SharedModule,
         PAGES_ROUTES,
-        FormsModule
+        FormsModule,
+        CommonModule,
+        ReactiveFormsModule
     ]
 })
 
