@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Route, Router } from '@angular/router';
 import { ServicioMarcaService } from 'src/app/services/servicio-marca.service';
 import { Marca } from 'src/app/interfaces/marca';
 import { FormBuilder, FormGroup } from '@angular/forms';
@@ -56,7 +56,7 @@ export class MarcaNuevoEdicionComponent implements OnInit {
     this._objeto = v;
   }
 
-  constructor(private _router: ActivatedRoute, private _api: ServicioMarcaService, public builder: FormBuilder) {
+  constructor(private _router: ActivatedRoute, private router: Router, private _api: ServicioMarcaService, public builder: FormBuilder) {
     this.objInit();
     if(this.objetoId){
       this.obtenerMarca()
@@ -90,6 +90,7 @@ export class MarcaNuevoEdicionComponent implements OnInit {
       this._api.addMarcas(this.forma.getRawValue()).then(marca => {
         marca.update({ id: marca.id }).then(actualizado => {
           console.log(`Marca ${this.forma.value.descripcion} creada`);
+          this.router.navigate(['/marcas/edicion-marca/', marca.id])
         })
       }).catch(err => {
         console.log(err)
