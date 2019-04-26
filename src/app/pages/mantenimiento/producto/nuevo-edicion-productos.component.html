@@ -1,0 +1,106 @@
+<form [formGroup]="forma" name="forma" (ngSubmit)="guardar()" novalidate>
+  <div class="d-flex justify-content-end">
+    <app-boton-regresa (click)="regresar()"></app-boton-regresa>
+    <app-boton-refresca *ngIf="objetoId" (click)="refrescar()"></app-boton-refresca>
+    <app-boton-elimina *ngIf="objetoId" (click)="elimina()"></app-boton-elimina>
+    <app-boton-guarda (click)="guardar()"></app-boton-guarda>
+  </div>
+  <div class="gt-titulos-vista">
+    <h2 class="titulo">Mantenimiento de productos</h2>
+    <p class="titulo d-sm-none d-none"> {{objetoId ? 'Edicion' : 'Creacion'}}</p>
+  </div>
+  <div class="container-fluid">
+    <ul class="nav nav-tabs" role="tablist">
+      <li class="nav-item"><a class="nav-link active" href="#producto" data-toggle="tab" role="tab">Producto</a>
+      </li>
+      <li class="nav-item"><a class="nav-link" href="#extras" data-toggle="tab" role="tab">Datos Extras</a></li>
+      <li class="nav-item"><a class="nav-link" href="#galeria" data-toggle="tab" role="tab">Galeria</a></li>
+    </ul>
+    <div class="tab-content">
+      <div class="tab-pane fade show active" id="producto" role="tabpanel">
+        <p>Producto</p>
+        <div class="row">
+          <div class="col-md-3">
+            <div class="form-group">
+              <label for="codigoProducto">Codigo</label>
+              <input class="form-control" type="number" id="codigo" formControlName="codigo">
+            </div>
+          </div>
+          <div class="col-md-9">
+            <div class="form-group">
+              <label for="nombreProducto">Nombre de Producto</label>
+              <input class="form-control" type="text" id="nombre" formControlName="nombre">
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-12">
+            <div class="form-group">
+              <label for="descripcionProducto">Descripción</label>
+              <textarea class="form-control" id="descripcionProducto" formControlName="descripcion"></textarea>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-12">
+            <div class="form-group">
+              <label for="descripcionProducto">Categoria</label>
+              <select class="form-control" name="cars" formControlName="categorias" multiple>
+                <option value="1">Volvsdfsfsfdo</option>
+                <option value="2">Saab</option>
+                <option value="3">Opel</option>
+                <option value="4">Audi</option>
+                <option value="5">Volvo</option>
+                <option value="6">Saab</option>
+                <option value="7">Opel</option>
+                <option value="8">Audi</option>
+              </select>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-4">
+            <div class="form-group">
+              <label for="Precio">Precio</label>
+              <input class="form-control" type="number" id="precio" formControlName="precio">
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="form-group">
+              <label for="descuentoProducto">Descuento</label>
+              <input class="form-control" type="text" id="descuento" formControlName="descuento">
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="form-group">
+              <label for="ratingProducto">Rating</label>
+              <input class="form-control" type="text" id="rating" formControlName="rating">
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="tab-pane fade" id="extras" role="tabpanel">
+        <p>Extras</p>
+        <div class="row">
+          <div class="col-md-4">
+            <div class="form-group">
+              <label for="talla">Talla</label>
+              <input class="form-control" type="text" id="talla" formControlName="talla">
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="form-group">
+              <label for="colorProducto">Color de Estilo</label>
+              <input class="form-control" type="text" id="color" formControlName="color">
+            </div>
+          </div>
+        </div>
+
+      </div>
+      <div class="tab-pane fade" id="galeria" role="tabpanel">
+        <p>Galeria</p>
+        <!--app-file-upload [path]="path" [obj1]="objeto" (obj)="objeto"></app-file-upload-->
+      </div>
+    </div>
+  </div>
+</form>

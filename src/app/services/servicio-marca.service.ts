@@ -51,19 +51,19 @@ export class ServicioMarcaService {
     // [END cursor_paginate]
   }
 
-  getMarca (id:string) {
-   
-       this.marcasCollection = this.afs.collection<any>('marcas');
-       let x = this.marcasCollection.snapshotChanges();
-       x.forEach(producto => {
-         producto.forEach( prod =>{
-             let data = prod.payload.doc.data();
-             let id = prod.payload.doc.id;
-             data['id'] = id;
-             console.log( "ID: ", id, " Data: " , data );
-             });
-       })
-       return this.marcasCollection.doc(id).valueChanges();
+  getMarca(id: string) {
+
+    this.marcasCollection = this.afs.collection<any>('marcas');
+    let x = this.marcasCollection.snapshotChanges();
+    x.forEach(producto => {
+      producto.forEach(prod => {
+        let data = prod.payload.doc.data();
+        let id = prod.payload.doc.id;
+        data['id'] = id;
+        console.log("ID: ", id, " Data: ", data);
+      });
+    })
+    return this.marcasCollection.doc(id).valueChanges();
 
   }
 
@@ -73,8 +73,8 @@ export class ServicioMarcaService {
   removeMarca(obj: Marca) {
     return this.afs.collection('marcas').doc(obj.id).delete()
   }
-  updateMarca (marca: Marca){
-    console.log(marca)
+  updateMarca(marca: Marca) {
+
     return this.afs.collection('marcas').doc(marca.id).update(marca)
   }
 }

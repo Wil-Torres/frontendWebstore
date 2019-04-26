@@ -10,9 +10,9 @@ export class SidebarService {
       icono: 'mdi mdi-gauge',
       submenu: [
         {titulo: 'Marca', url: '/marcas/lista-marcas'},
-        {titulo: 'Categoria', url: ''},
-        {titulo: 'Medida', url: ''},
-        {titulo: 'Producto', url: ''},
+        {titulo: 'Categoria', url: '/categorias/lista-categorias'},
+        {titulo: 'Medida', url: '/medidas/lista-medidas'},
+        {titulo: 'Producto', url: '/productos/lista-productos'},
         {titulo: 'Otras Opciones', url: ''}
       ]
     },

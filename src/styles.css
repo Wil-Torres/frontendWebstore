@@ -51,3 +51,54 @@
     font-weight: 400;
 }
 
+/* principales */
+.gt-titulos-vista span.btns.pull-right {
+    left: -15px;
+}
+
+.gt-titulos-vista span.btns {
+    position: relative;
+    top: -70px;
+}
+.mr-1 {
+    margin-right: .25rem!important;
+}
+.gt-titulos-vista {
+}
+
+.gt-titulos-vista h1, .gt-titulos-vista h2, .gt-titulos-vista h3, .gt-titulos-vista h4, .gt-titulos-vista h5, .gt-titulos-vista h6 {
+    color: #337ab7;
+}
+.titulo {
+    color: #333;
+}
+.titulo {
+    text-align: center;
+    font-weight: bolder;
+}
+
+/* clase de tamaños */
+.gt-wd-25{
+    width: 25px;
+}
+.gt-wd-50{
+    width: 50px;
+}
+.gt-wd-75{
+    width: 75px;
+}
+.gt-wd-100{
+    width: 100px;
+}
+.gt-wd-125{
+    width: 125px;
+}
+.gt-wd-150{
+    width: 150px;
+}
+.gt-wd-175{
+    width: 175px;
+}
+.gt-wd-200{
+    width: 200px;
+}
