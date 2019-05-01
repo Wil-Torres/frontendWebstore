@@ -7,20 +7,41 @@ import { Pedido } from 'src/app/interfaces/pedido';
   template:`
   <div class="modal-content">
     <div class="modal-header bg-primary text-white d-flex justify-content-left">
-      <app-boton claseColor="btn-light" claseIcono="fa-times" titulo="Cerrar" (clic)="cancelar()"></app-boton>
+      <h4 class="modal-title flex-grow-1 text-center">Número de pedido - {{pedido.pedidoNumero}}</h4>
+      <app-boton claseColor="btn-light floar-right" claseIcono="fa-times" titulo="Cerrar" (clic)="cancelar()"></app-boton>
     </div>
     <div class="modal-body">
       <div class="table-responsive">
-        <table class="table table-hover">
+        <table class="table table-hover table-sm">
           <thead>
             <tr class="bg-primary text-white">
-              <th class="gt-w-75 text-center">Código</th>
-              <th>Descripción</th>
+              <th colspan="2">Nombre del producto</th>
+              <th class="gt-w-75 text-center">Total</th>
             </tr>
           </thead>
           <tbody>
-            
+            <tr *ngFor="let item of pedido.detalle">
+            <td style="padding-right: 0;"><img [src]="item.imagenes[0]" style="width: 100px;"></td>
+              <td style="padding-left: 0;">
+                <div class="row">
+                  <div class="col"><b>Producto:</b>: {{item.nombre}} <span class="badge badge-secondary">{{item.cantidad}}</span></div>
+                </div>
+                <div class="row">
+                  <div class="col"><b>Tamaño:</b> {{item.talla}}</div>
+                </div>
+                <div class="row">
+                  <div class="col"><b>Color:</b> {{item.color}}</div>
+                </div>
+              </td>
+              <td class="gt-w-75 text-right">{{item.total | number: '0.2'}}</td>
+            </tr>
           </tbody>
+          <tfoot>
+            <tr>
+              <th class="text-right" colspan="2">Total</th>
+              <th class="text-right">{{pedido.monto | number: '0.2'}}</th>
+            </tr>
+          </tfoot>
         </table>
       </div>
     </div>

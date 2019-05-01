@@ -93,11 +93,11 @@ export class PedidoListaComponent implements OnInit {
       initialState: {
         pedido: pedido
       },
-      class: 'modal-md'
+      class: 'modal-lg'
     };
 
     this.modalRef = this.modalService.show(PedidoModalComponent, opciones);
-    this.modalRef.content.pedido = 'pedido';
+    this.modalRef.content.pedido = pedido;
   }
   get numeroRegistros(): number {
     return this._numeroRegistros;
