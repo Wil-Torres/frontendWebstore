@@ -1,6 +1,6 @@
 <div class="container-fluid">
     <div class="row flex-xl-nowrap">
-        <div class="col-12 col-md-3 col-xl-2 bd-sidebar">
+        <div class="col-12 col-md-3 col-xl-2 d-none d-sm-block">
             <section class="section-nav">
                 <div class="float-right">
                     <label for="sorting">Sort by:</label>
@@ -74,6 +74,93 @@
                 </div>
             </section>
         </div>
+        <div class="d-block d-sm-none">
+            <nav class=" float-right navbar navbar-expand-lg navbar-light bg-light">
+                <button class="navbar-toggler" type="button" data-toggle="collapse"
+                    data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                    aria-label="Toggle navigation"> Filtros
+                    
+                </button>
+
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <section class="section-nav">
+                        <div class="float-right">
+                            <label for="sorting">Sort by:</label>
+                            <select class="form-control" id="sorting" [(ngModel)]="orden"
+                                [ngModelOptions]="{standalone: true}" (change)="ordenarProductos(orden)">
+                                <option [ngValue]="0">-- Sin Seleccionar --</option>
+                                <option [ngValue]="1">Bajo - Alto Precio</option>
+                                <option [ngValue]="2">Alto - Bajo Precio</option>
+                                <option [ngValue]="3">Por Rating</option>
+                                <option [ngValue]="4">Orden A - Z</option>
+                                <option [ngValue]="5">Orden Z - A</option>
+                            </select><span class="text-muted">Showing:&nbsp;</span><span>1 - 10 items</span>
+                            <button class="btn btn-outline-primary btn-sm float-right" type="button"
+                                (click)="limpiarFiltro()">Limpiar
+                                Filtro</button>
+                        </div>
+                    </section>
+                    <section class="widget widget-categories">
+                        <h3 class="widget-title">Categorias</h3>
+                        <ul>
+                            <li class="has-children expanded" *ngFor="let cat of categorias">
+                                <a>{{cat.descripcion}}</a><span>(1138)</span>
+                                <ul>
+                                    <li *ngFor="let subcat of cat.subCategorias">
+                                        <a>{{subcat.descripcion}}</a><span>(508)</span>
+                                        <ul>
+                                            <li *ngFor="let item of subcat.items"><a
+                                                    (click)="filtrarCategoria(item)">{{item}}</a></li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </section>
+                    <section class="widget widget-price">
+                        <h3 class="widget-title">Categorias</h3>
+                        <ul>
+                            <li class="has-children expanded">Under $25</li>
+                            <li class="has-children expanded">$25 to $50</li>
+                            <li class="has-children expanded">$50 to $100</li>
+                            <li class="has-children expanded">$100 to $200</li>
+                            <li class="has-children expanded">$200 & Above</li>
+                            <li>
+                                <div class="input-group mb-3">
+                                    <input type="text" class="form-control" placeholder="Recipient's username"
+                                        aria-label="Recipient's username" aria-describedby="button-addon2">
+                                    to
+                                    <input type="text" class="form-control" placeholder="Recipient's username"
+                                        aria-label="Recipient's username" aria-describedby="button-addon2">
+                                    <div class="input-group-append">
+                                        <button class="btn btn-outline-secondary" type="button"
+                                            id="button-addon2">GO</button>
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+
+
+                    </section>
+                    <section class="widget">
+                        <h3 class="widget-title">Filtrar por Marca</h3>
+                        <div class="custom-control custom-checkbox" *ngFor="let marca of marcas">
+                            <input class="custom-control-input" type="checkbox" [id]="marca.codigo">
+                            <label class="custom-control-label" [for]="marca.codigo">{{marca.descripcion}}&nbsp;<span
+                                    class="text-muted">(254)</span></label>
+                        </div>
+                    </section>
+                    <section class="widget">
+                        <h3 class="widget-title">Filtro por Presentacion</h3>
+                        <div class="custom-control custom-checkbox">
+                            <input class="custom-control-input" type="checkbox" id="xl">
+                            <label class="custom-control-label" for="xl">XL&nbsp;<span
+                                    class="text-muted">(208)</span></label>
+                        </div>
+                    </section>
+                </div>
+            </nav>
+        </div>
         <main class="col-12 col-md-10 col-xl-10 bd-content" role="main">
             <h1>Dashboard</h1>
             <section class="section-nav">
@@ -84,7 +171,7 @@
                             <img class="card-img-top tamanio-img" [src]="producto.imagenes[0]">
                             <div class="card-body change-cursor" (click)="preview(producto.id)">
                                 <h5 class="card-title">{{producto.nombre}}</h5>
-                                    <p class="card-text contenido-producto">Antes: <del
+                                <p class="card-text contenido-producto">Antes: <del
                                         class="text-muted text-normal">{{producto.precio | number : '0.2-2'}}</del>&nbsp; {{producto.precio
                       - ((producto.precio * producto.descuento)/100 ) | number : '0.2-2'}}</p>
                                 <button class="btn btn-outline-primary btn-sm" (click)="agregarACesta(producto)">Add to
