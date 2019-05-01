@@ -28,6 +28,7 @@ export class HomeComponent implements OnInit {
   private _marcas : any[] = [];
   private _medidas : any[] = [];
   private _productos : any[] = [];
+  orden: any;
 
 
   public get productos() : any[] {
@@ -89,5 +90,6 @@ export class HomeComponent implements OnInit {
       this.productos = resp;
     });
   }
+  limpiarFiltro(){}
 
 }
