@@ -23,6 +23,7 @@ import {AngularFireDatabaseModule  } from '@angular/fire/database';
 
 // enviroments config
 import { environment } from '../environments/environment';
+import { ModalModule } from 'ngx-bootstrap/modal';
 
 
 @NgModule({
@@ -43,6 +44,7 @@ import { environment } from '../environments/environment';
     AngularFirestoreModule,
     AngularFireAuthModule,
     AngularFireStorageModule,
+    ModalModule.forRoot(),
   ],
   providers: [],
   bootstrap: [AppComponent]

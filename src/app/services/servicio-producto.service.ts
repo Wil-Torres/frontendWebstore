@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { AngularFirestoreCollection, AngularFirestore } from '@angular/fire/firestore';
 import { Producto } from '../interfaces/producto';
+import { map } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
@@ -64,5 +65,45 @@ export class ServicioProductoService {
   }
   updateProducto(producto: Producto) { 
     return this.afs.collection('productos').doc(producto.id).update(producto)
+  }
+  obtenerProducto (orden, param, value) {
+    this.productoCollection = this.afs.collection('productos', ref => {
+      let query: firebase.firestore.Query = ref
+      switch (param) {
+        case 1:
+          query = query.where('categorias', 'array-contains', value);
+          break;
+        case 2:
+          query = query.where('marca', '>=', value);
+          break;
+      }
+      switch (orden) {
+        case 1:
+          query = query.orderBy("precio", "asc");
+          break;
+        case 2:
+          query = query.orderBy('precio', 'desc');
+          break;
+        case 3:
+          query = query.orderBy('rating');
+          break;
+        case 4:
+          query = query.orderBy('nombre', 'asc');
+          break;
+        case 4:
+          query = query.orderBy('nombre', 'desc');
+          break;
+      }
+      return query;
+    });
+    return this.productoCollection.valueChanges().pipe(
+      map((x) => {
+        x.forEach(elem => {
+          elem['cantidad'] = 1
+        })
+        return  x;
+      })
+    );
+    
   }
 }

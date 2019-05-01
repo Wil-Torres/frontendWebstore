@@ -9,6 +9,7 @@ import { EncabezadoPaginaComponent } from './componentes/encabezado-pagina/encab
 import { PaginacionComponent } from './componentes/paginacion/paginacion.component';
 import { BusquedaListaComponent } from './componentes/busqueda-lista/busqueda-lista.component';
 import { PaginationModule } from "ngx-bootstrap/pagination";
+import { ModalModule } from 'ngx-bootstrap/modal';
 import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { BotonNuevoComponent } from './componentes/encabezado-pagina/boton-nuevo.component';
 import { BotonEliminaComponent } from './componentes/encabezado-pagina/boton-elimina.component';
@@ -62,6 +63,7 @@ import { BotonLimpiaComponent } from './componentes/encabezado-pagina/boton-limp
         CommonModule,
         ReactiveFormsModule,
         PaginationModule.forRoot(),
+        ModalModule.forRoot()
     ]
 })
 export class SharedModule {}

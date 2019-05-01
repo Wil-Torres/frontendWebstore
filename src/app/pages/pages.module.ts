@@ -16,6 +16,16 @@ import { NuevoEdicionMedidaComponent } from './mantenimiento/medida/nuevo-edicio
 import { ListaMedidaComponent } from './mantenimiento/medida/lista-medida.component';
 import { ListaProductosComponent } from './mantenimiento/producto/lista-productos.component';
 import { NuevoEdicionProductosComponent } from './mantenimiento/producto/nuevo-edicion-productos.component';
+import { ListaOpcionesComponent } from './mantenimiento/otrasOpciones/lista-opciones.component';
+import { ProcesoCompraComponent } from './movimiento/proceso-compra/proceso-compra.component';
+import { CartShoppingComponent } from './movimiento/proceso-compra/cart-shopping.component';
+import { DatosFacturacionComponent } from './movimiento/proceso-compra/datos-facturacion.component';
+import { PaymentComponent } from './movimiento/proceso-compra/payment.component';
+import { ReviewComponent } from './movimiento/proceso-compra/review.component';
+import { ShippingComponent } from './movimiento/proceso-compra/shipping.component';
+import { PedidoListaComponent } from './movimiento/pedido/pedido-lista.component';
+import { PedidoModalComponent } from './movimiento/pedido/pedido-modal.component';
+import { ModalModule } from 'ngx-bootstrap/modal';
 
 @NgModule({
     declarations: [
@@ -30,7 +40,16 @@ import { NuevoEdicionProductosComponent } from './mantenimiento/producto/nuevo-e
         NuevoEdicionMedidaComponent,
         ListaMedidaComponent,
         ListaProductosComponent,
-        NuevoEdicionProductosComponent
+        NuevoEdicionProductosComponent,
+        ListaOpcionesComponent,
+        ProcesoCompraComponent,
+        CartShoppingComponent,
+        DatosFacturacionComponent,
+        PaymentComponent,
+        ReviewComponent,
+        ShippingComponent,
+        PedidoListaComponent,
+        PedidoModalComponent
     ],
     exports: [
         HomeComponent,
@@ -38,14 +57,19 @@ import { NuevoEdicionProductosComponent } from './mantenimiento/producto/nuevo-e
         AccountSettingComponent,
         MarcaListaComponent,
         MarcaNuevoEdicionComponent,
-        TiendaComponent
+        TiendaComponent,
+        ModalModule,
     ],
     imports: [
         SharedModule,
         PAGES_ROUTES,
         FormsModule,
         CommonModule,
-        ReactiveFormsModule
+        ReactiveFormsModule,
+        ModalModule.forRoot()
+    ],
+    entryComponents: [
+        PedidoModalComponent
     ]
 })
 

@@ -13,7 +13,7 @@ export class SidebarService {
         {titulo: 'Categoria', url: '/categorias/lista-categorias'},
         {titulo: 'Medida', url: '/medidas/lista-medidas'},
         {titulo: 'Producto', url: '/productos/lista-productos'},
-        {titulo: 'Otras Opciones', url: ''}
+        {titulo: 'Otras Opciones', url: '/opciones/lista'}
       ]
     },
     {
