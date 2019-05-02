@@ -20,6 +20,8 @@ import { BotonRefrescaComponent } from './componentes/encabezado-pagina/boton-re
 import { BotonRegresaComponent } from './componentes/encabezado-pagina/boton-regresa.component';
 import { BotonComponent } from './componentes/encabezado-pagina/boton.component';
 import { BotonLimpiaComponent } from './componentes/encabezado-pagina/boton-limpia.component';
+import { CestaComponent } from "../pages/movimiento/cesta/cesta.component";
+import {NgxWebstorageModule} from 'ngx-webstorage';
 
 @NgModule({
     declarations: [
@@ -38,7 +40,8 @@ import { BotonLimpiaComponent } from './componentes/encabezado-pagina/boton-limp
         BotonRefrescaComponent,
         BotonRegresaComponent,
         BotonComponent,
-        BotonLimpiaComponent
+        BotonLimpiaComponent,
+        CestaComponent
     ],
     exports: [
         SidebarComponent,
@@ -55,7 +58,8 @@ import { BotonLimpiaComponent } from './componentes/encabezado-pagina/boton-limp
         BotonEditaComponent,
         BotonRefrescaComponent,
         BotonRegresaComponent,
-        BotonComponent
+        BotonComponent,
+        CestaComponent
     ],
     imports:[
         RouterModule,
@@ -63,7 +67,8 @@ import { BotonLimpiaComponent } from './componentes/encabezado-pagina/boton-limp
         CommonModule,
         ReactiveFormsModule,
         PaginationModule.forRoot(),
-        ModalModule.forRoot()
+        ModalModule.forRoot(),
+        NgxWebstorageModule.forRoot(),
     ]
 })
 export class SharedModule {}

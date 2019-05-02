@@ -3,6 +3,7 @@ import { ServicioCategoriaService } from 'src/app/services/servicio-categoria.se
 import { ServicioMarcaService } from 'src/app/services/servicio-marca.service';
 import { ServicioMedidaService } from 'src/app/services/servicio-medida.service';
 import { ServicioProductoService } from 'src/app/services/servicio-producto.service';
+import { ServicioCestaService } from 'src/app/services/servicio-cesta.service';
 
 @Component({
   selector: 'app-home',
@@ -55,13 +56,15 @@ export class HomeComponent implements OnInit {
   public set categorias(v : any[]) {
     this._categorias = v;
   }
+  compra: any = [];
   
 
   constructor(private srv_categoria: ServicioCategoriaService,
     private srv_marca: ServicioMarcaService, private srv_medida: ServicioMedidaService,
-    private srv_producto: ServicioProductoService) { }
+    private srv_producto: ServicioProductoService, private srv_cesta: ServicioCestaService) { }
 
   ngOnInit() {
+    this.compra = (JSON.parse(localStorage.getItem('cartShop'))).carrito;
     
     this.srv_categoria.getCategorias(0, 100).then(cat => {
       cat.subscribe(categoria => {
@@ -91,5 +94,17 @@ export class HomeComponent implements OnInit {
     });
   }
   limpiarFiltro(){}
+
+  agregarACesta(item) {
+    item.cantidad = 1;
+    if( !item.cantidad || item.cantidad < 0){
+      console.warn('debe definir una cantidad ')
+      return
+
+    }
+    this.srv_cesta.addItemCart(item).subscribe(res => {
+      this.compra = (JSON.parse(localStorage.getItem('cartShop'))).carrito;
+    })
+  }
 
 }

@@ -13,6 +13,7 @@ import { ListaProductosComponent } from "./mantenimiento/producto/lista-producto
 import { NuevoEdicionProductosComponent } from "./mantenimiento/producto/nuevo-edicion-productos.component";
 import { ListaOpcionesComponent } from "./mantenimiento/otrasOpciones/lista-opciones.component";
 import { PedidoListaComponent } from "./movimiento/pedido/pedido-lista.component";
+import { WishListComponent } from "./mantenimiento/otrasOpciones/wish-list.component";
 const pagesRoutes: Routes = [
     {
         path: '',
@@ -34,6 +35,7 @@ const pagesRoutes: Routes = [
             {path: 'productos/edicion-producto/:id', component: NuevoEdicionProductosComponent, data:{titulo: 'producto'}},
             {path: 'opciones/lista', component: ListaOpcionesComponent, data:{titulo: 'Opciones'}},
             {path: 'pedidos', component: PedidoListaComponent, data:{titulo: 'Lista de Pedidos'}},
+            {path: 'wishlist', component: WishListComponent, data:{titulo: 'Lista de Deseos'}},
             {path: 'configuracion', component: TiendaComponent, data:{titulo: 'Configuracion Tienda'}},
             {path: '', redirectTo: '/home', pathMatch: 'full'},
         ]

@@ -26,6 +26,7 @@ import { ShippingComponent } from './movimiento/proceso-compra/shipping.componen
 import { PedidoListaComponent } from './movimiento/pedido/pedido-lista.component';
 import { PedidoModalComponent } from './movimiento/pedido/pedido-modal.component';
 import { ModalModule } from 'ngx-bootstrap/modal';
+import { WishListComponent } from './mantenimiento/otrasOpciones/wish-list.component';
 
 @NgModule({
     declarations: [
@@ -49,7 +50,8 @@ import { ModalModule } from 'ngx-bootstrap/modal';
         ReviewComponent,
         ShippingComponent,
         PedidoListaComponent,
-        PedidoModalComponent
+        PedidoModalComponent,
+        WishListComponent,
     ],
     exports: [
         HomeComponent,
