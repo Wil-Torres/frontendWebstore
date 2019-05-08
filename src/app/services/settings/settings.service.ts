@@ -13,6 +13,17 @@ export class SettingsService {
 
   constructor(@Inject(DOCUMENT) private _document) { 
     this.cargarAjustes();
+    if ( !localStorage.getItem('cartShop') ){
+      window.localStorage.setItem('cartShop', JSON.stringify({carrito: []}));
+    }
+    if ( !sessionStorage.getItem('confirmShop') ){
+      window.sessionStorage.setItem('confirmShop', JSON.stringify(
+        {
+          facturacion: {},
+          envio:null,
+          pago: {}
+        }));
+    }
   }
 
   guardarAjustes () {

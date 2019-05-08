@@ -1,11 +1,13 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
-import { NullTemplateVisitor } from '@angular/compiler';
+import { isNil } from 'lodash'
+import { ServicioProductoService } from 'src/app/services/servicio-producto.service';
+import { ServicioComprasService } from 'src/app/services/servicio-compras.service';
 
 @Component({
   selector: 'app-nuevo-edicion-compras',
-  templateUrl: './compras.html' ,
+  templateUrl: './compras.html',
   styles: [`
 	.w-15 {
     width: 15%!important;
@@ -18,6 +20,19 @@ import { NullTemplateVisitor } from '@angular/compiler';
 export class NuevoEdicionComprasComponent implements OnInit {
   private _objeto: any;
   private _objetoId: any = this._router.snapshot.paramMap.get('id');
+
+  private _detalle: any = {
+    id: null,
+    productoId: null,
+    producto: {
+      nombre: null,
+      id: null
+    },
+    cantidad: null,
+    precio: 0,
+    iva: 0,
+    total: 0
+  };
   optNew: any;
 
   private _forma: FormGroup;
@@ -39,10 +54,17 @@ export class NuevoEdicionComprasComponent implements OnInit {
   public set objeto(v: any) {
     this._objeto = v;
   }
+  public get detalle(): any {
+    return this._detalle;
+  }
+  public set detalle(v: any) {
+    this._detalle = v;
+  }
 
 
   constructor(private _router: ActivatedRoute, private router: Router,
-    public builder: FormBuilder) {
+    public builder: FormBuilder, private srvProductos: ServicioProductoService, 
+    private srvCompras: ServicioComprasService) {
     this.objInit();
     if (this.objetoId) {
       this.obtenerCompra()
@@ -54,13 +76,17 @@ export class NuevoEdicionComprasComponent implements OnInit {
   objInit() {
     this._forma = this.builder.group({
       id: null,
-      proveedorId: null,
+      proveedorId: 1,
+      serie: null,
+      correlativo: null,
+      fecha: new Date(),
       proveedor: this.builder.group({
-        id: null,
-        codigo: null,
-        nit: null,
-        nombre: null,
-      })
+        id: 1,
+        codigo: 1,
+        nit: 6258223 - 2,
+        nombre: 'Wilson Gerardo Torres Castellanos',
+      }),
+      detalleCompras: [[]]
     })
   }
   obtenerCompra() { }
@@ -69,7 +95,38 @@ export class NuevoEdicionComprasComponent implements OnInit {
   buscarPorIdentificador(nit: string) { }
   limpiar() { }
   crear() { }
-  elimina() {}
-  guardar() {}
+  elimina() { }
+  guardar() { }
 
+  cancelar() { 
+    this.detalle = {};
+  }
+  agregarDetalle() {
+    let validar = this.validarDetalle();
+    if (validar.error) {
+      alert(validar.mensaje);
+      return;
+    }
+    this.forma.value.detalleCompras.push(this.detalle);
+  }
+  buscarProducto () {
+    this.srvProductos.obtenerProductoCodigo(this.detalle.productoId).subscribe(resp => {
+      this.detalle.producto = resp[0];
+    });
+  }
+  validarDetalle() {
+    if (isNil(this.detalle.productoId)) {
+      return { error: true, mensaje: 'Falta codigo de producto' };
+    }
+    if (isNil(this.detalle.cantidad)) {
+      return { error: true, mensaje: 'Falta ingresar la cantidad' };
+    }
+    if (isNil(this.detalle.precio)) {
+      return { error: true, mensaje: 'Falta ingresar el precio del producto' };
+    }
+    if (isNil(this.detalle.iva)) {
+      return { error: true, mensaje: 'Falta ingresar el valor del iva' };
+    }
+    return {error:false}
+  };
 }

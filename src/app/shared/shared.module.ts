@@ -22,6 +22,7 @@ import { BotonComponent } from './componentes/encabezado-pagina/boton.component'
 import { BotonLimpiaComponent } from './componentes/encabezado-pagina/boton-limpia.component';
 import { CestaComponent } from "../pages/movimiento/cesta/cesta.component";
 import {NgxWebstorageModule} from 'ngx-webstorage';
+import { BsDatepickerModule } from "ngx-bootstrap/datepicker";
 
 @NgModule({
     declarations: [
@@ -69,6 +70,7 @@ import {NgxWebstorageModule} from 'ngx-webstorage';
         PaginationModule.forRoot(),
         ModalModule.forRoot(),
         NgxWebstorageModule.forRoot(),
+        BsDatepickerModule.forRoot()
     ]
 })
 export class SharedModule {}

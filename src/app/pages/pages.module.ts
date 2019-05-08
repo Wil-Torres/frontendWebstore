@@ -31,6 +31,7 @@ import { ListaComprasComponent } from './movimiento/compras/lista-compras.compon
 import { NuevoEdicionComprasComponent } from './movimiento/compras/nuevo-edicion-compras.component';
 import { NuevoEdicionVentasComponent } from './movimiento/ventas/nuevo-edicion-ventas.component';
 import { ListaVentasComponent } from './movimiento/ventas/lista-ventas.component';
+import { BsDatepickerModule } from "ngx-bootstrap/datepicker";
 
 @NgModule({
     declarations: [
@@ -76,7 +77,8 @@ import { ListaVentasComponent } from './movimiento/ventas/lista-ventas.component
         FormsModule,
         CommonModule,
         ReactiveFormsModule,
-        ModalModule.forRoot()
+        ModalModule.forRoot(),
+        BsDatepickerModule.forRoot()
     ],
     entryComponents: [
         PedidoModalComponent

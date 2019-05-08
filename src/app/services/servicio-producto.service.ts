@@ -106,4 +106,12 @@ export class ServicioProductoService {
     );
     
   }
+  obtenerProductoCodigo (value:any) {
+    this.productoCollection = this.afs.collection('productos', ref => {
+      let query: firebase.firestore.Query = ref
+      query = query.where('codigoProducto', '==', value);
+      return query;
+    });
+    return this.productoCollection.valueChanges()
+  }
 }

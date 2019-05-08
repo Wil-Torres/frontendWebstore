@@ -24,6 +24,7 @@ import {AngularFireDatabaseModule  } from '@angular/fire/database';
 // enviroments config
 import { environment } from '../environments/environment';
 import { ModalModule } from 'ngx-bootstrap/modal';
+import { BsDatepickerModule } from 'ngx-bootstrap/datepicker';
 
 
 @NgModule({
@@ -45,6 +46,7 @@ import { ModalModule } from 'ngx-bootstrap/modal';
     AngularFireAuthModule,
     AngularFireStorageModule,
     ModalModule.forRoot(),
+    BsDatepickerModule.forRoot(),
   ],
   providers: [],
   bootstrap: [AppComponent]
