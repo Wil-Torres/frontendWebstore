@@ -60,7 +60,7 @@
                 <div class="form-group">
                     <label for="correlativo">Fecha</label>
                     <div class="input-group mb-3">
-                        <input type="date" class="form-control" #dp="bsDatepicker" bsDatepicker [bsValue]="bsValue">
+                        <input type="date" class="form-control" #dp="bsDatepicker" bsDatepicker>
                         <div class="input-group-append">
                             <button class="btn btn-primary" (click)="dp.toggle()" [attr.aria-expanded]="dp.isOpen">
                                 <i class="fa fa-calendar" aria-hidden="true"></i>
@@ -75,11 +75,11 @@
         </div>
         <div class="container-fluid">
             <div class="row d-flex justify-content-end">
-                <button type="button" [disabled]="disabled" class="btn btn-sm btn-danger" title="Cancelar Cambios"
+                <button type="button" class="btn btn-sm btn-danger" title="Cancelar Cambios"
                     (click)="cancelar()">
                     <i class="fa fa-ban"></i>
                 </button>
-                <button type="submit" [disabled]="disabled" class="btn btn-sm btn-primary ml-1" title="Agregar Detalle">
+                <button type="submit" class="btn btn-sm btn-primary ml-1" title="Agregar Detalle">
                     <i class="fa fa-check"></i>
                 </button>
             </div>
@@ -150,8 +150,8 @@
                                 <td class="text-center">{{'detalle.iva'}}
                                 </td>
                                 <td class="text-center">{{'detalle.total'}}</td>
-                                <td class="text-center"><button [disabled]="disabled" type="button"
-                                        class="btn btn-sm btn-danger" title="Cancelar Cambios" (click)="eliminar(index)">
+                                <td class="text-center"><button type="button"
+                                        class="btn btn-sm btn-danger" title="Cancelar Cambios" (click)="eliminar()">
                                         <i class="fa fa-trash"></i>
                                     </button></td>
                             </tr>

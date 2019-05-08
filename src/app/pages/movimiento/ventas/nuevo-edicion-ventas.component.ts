@@ -68,6 +68,14 @@ export class NuevoEdicionVentasComponent implements OnInit {
   buscarPorIdentificador(nit: string) { }
   limpiar() { }
   crear() { }
+  regresar(){}
+  refrescar(){}
+  elimina(){}
+  eliminar(){}
+  guardar(){}
+  buscarEntidad(){}
+  cancelar(){}
+
 
 
 }

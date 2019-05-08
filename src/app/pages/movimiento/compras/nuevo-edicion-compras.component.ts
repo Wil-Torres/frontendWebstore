@@ -97,6 +97,10 @@ export class NuevoEdicionComprasComponent implements OnInit {
   crear() { }
   elimina() { }
   guardar() { }
+  regresar(){}
+  refrescar(){}
+  buscarEntidad(){}
+
 
   cancelar() { 
     this.detalle = {};
