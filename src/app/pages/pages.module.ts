@@ -27,6 +27,10 @@ import { PedidoListaComponent } from './movimiento/pedido/pedido-lista.component
 import { PedidoModalComponent } from './movimiento/pedido/pedido-modal.component';
 import { ModalModule } from 'ngx-bootstrap/modal';
 import { WishListComponent } from './mantenimiento/otrasOpciones/wish-list.component';
+import { ListaComprasComponent } from './movimiento/compras/lista-compras.component';
+import { NuevoEdicionComprasComponent } from './movimiento/compras/nuevo-edicion-compras.component';
+import { NuevoEdicionVentasComponent } from './movimiento/ventas/nuevo-edicion-ventas.component';
+import { ListaVentasComponent } from './movimiento/ventas/lista-ventas.component';
 
 @NgModule({
     declarations: [
@@ -52,6 +56,10 @@ import { WishListComponent } from './mantenimiento/otrasOpciones/wish-list.compo
         PedidoListaComponent,
         PedidoModalComponent,
         WishListComponent,
+        ListaComprasComponent,
+        NuevoEdicionComprasComponent,
+        NuevoEdicionVentasComponent,
+        ListaVentasComponent,
     ],
     exports: [
         HomeComponent,
