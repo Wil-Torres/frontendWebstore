@@ -63,7 +63,7 @@ export class NuevoEdicionComprasComponent implements OnInit {
 
 
   constructor(private _router: ActivatedRoute, private router: Router,
-    public builder: FormBuilder, private srvProductos: ServicioProductoService, 
+    public builder: FormBuilder, private srvProductos: ServicioProductoService,
     private srvCompras: ServicioComprasService) {
     this.objInit();
     if (this.objetoId) {
@@ -72,7 +72,8 @@ export class NuevoEdicionComprasComponent implements OnInit {
     console.log(this.forma.value)
   }
 
-  ngOnInit() { }
+  ngOnInit() {
+   }
   objInit() {
     this._forma = this.builder.group({
       id: null,
@@ -96,13 +97,42 @@ export class NuevoEdicionComprasComponent implements OnInit {
   limpiar() { }
   crear() { }
   elimina() { }
-  guardar() { }
-  regresar(){}
-  refrescar(){}
-  buscarEntidad(){}
+  guardar() {
+    if ( !isNil(this.forma.value.id)  ) {
+      this.srvCompras.addCompras(this.forma.getRawValue()).then(res => {
+        console.log(`Compra Acualizada`);
+      }).catch(err => {
+        console.log(err);
+      })
+    } else {
+      this.srvCompras.addCompras(this.forma.getRawValue()).then(compra => {
+        this.actualizarExistencias(this.forma.getRawValue());
+        compra.update({ id: compra.id }).then(actualizado => {
+          this.router.navigate(['/compras/edicion-compra/', compra.id])
+        })
+      }).catch(err => {
+        console.log(err)
+      })
+    }
+
+  }
+
+  actualizarExistencias(compra: any){
+    compra.detalleCompras.forEach((elems) => {
+      let x = this.srvCompras.buscarExistencia(elems.producto.id).subscribe((elem:any) => {
+        elem[0].ingresosCompras += elems.cantidad;
+        elem[0].costoOriginal += elems.precio;
+        this.srvCompras.actualizarExistencia(elem[0]);
+        x.unsubscribe();
+      })
+    });
+  }
+  regresar() { }
+  refrescar() { }
+  buscarEntidad() { }
 
 
-  cancelar() { 
+  cancelar() {
     this.detalle = {};
   }
   agregarDetalle() {
@@ -113,7 +143,7 @@ export class NuevoEdicionComprasComponent implements OnInit {
     }
     this.forma.value.detalleCompras.push(this.detalle);
   }
-  buscarProducto () {
+  buscarProducto() {
     this.srvProductos.obtenerProductoCodigo(this.detalle.productoId).subscribe(resp => {
       this.detalle.producto = resp[0];
     });
@@ -131,6 +161,6 @@ export class NuevoEdicionComprasComponent implements OnInit {
     if (isNil(this.detalle.iva)) {
       return { error: true, mensaje: 'Falta ingresar el valor del iva' };
     }
-    return {error:false}
+    return { error: false }
   };
 }

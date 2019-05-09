@@ -43,10 +43,10 @@ const pagesRoutes: Routes = [
 
             {path: 'compras/lista-compras', component: ListaComprasComponent, data:{titulo: 'Lista de Compras'}},
             {path: 'compras/nueva-compra', component: NuevoEdicionComprasComponent, data:{titulo: 'Nueva Compra'}},
-            {path: 'compras/edicion-compra', component: NuevoEdicionComprasComponent, data:{titulo: 'Editar Compra'}},
+            {path: 'compras/edicion-compra/:id', component: NuevoEdicionComprasComponent, data:{titulo: 'Editar Compra'}},
             {path: 'ventas/lista-ventas', component: ListaVentasComponent, data:{titulo: 'Lista de Ventas'}},
             {path: 'ventas/nueva-venta', component: NuevoEdicionVentasComponent, data:{titulo: 'Nueva Venta'}},
-            {path: 'ventas/edicion-venta', component: NuevoEdicionVentasComponent, data:{titulo: 'Editar Venta'}},
+            {path: 'ventas/edicion-venta/:id', component: NuevoEdicionVentasComponent, data:{titulo: 'Editar Venta'}},
             {path: 'configuracion', component: TiendaComponent, data:{titulo: 'Configuracion Tienda'}},
             {path: '', redirectTo: '/home', pathMatch: 'full'},
         ]

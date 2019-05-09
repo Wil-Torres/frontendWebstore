@@ -9,6 +9,7 @@ import { AngularFirestoreCollection, AngularFirestore } from '@angular/fire/fire
 export class ServicioComprasService {
   compras: Observable<any[]>;
   comprasCollection: AngularFirestoreCollection<any>;
+  existenciaCollection: AngularFirestoreCollection<any>;
   next: AngularFirestoreCollection<any>;
 
   private _paginacion: any = {};
@@ -74,5 +75,17 @@ export class ServicioComprasService {
   updateCompra(compra: any) {
 
     return this.afs.collection('entradas').doc(compra.id).update(compra)
+  }
+  buscarExistencia (productoId: any) {
+    this.existenciaCollection = this.afs.collection('existencias', ref => {
+      let query: firebase.firestore.Query = ref
+      query = query.where('productoId', '==', productoId);
+      return query;
+    });
+    return this.existenciaCollection.valueChanges()
+  }
+  actualizarExistencia(obj:any ) {
+    return this.afs.collection('existencias').doc(obj.id).update(obj);
+
   }
 }
