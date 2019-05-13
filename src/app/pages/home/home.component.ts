@@ -82,8 +82,9 @@ export class HomeComponent implements OnInit {
       })
     });
     this.srv_producto.getProductos(0, 100).then(prod => {
-      prod.subscribe(producto => {
+      let productoTemp = prod.subscribe(producto => {
         this.productos = producto;  
+        productoTemp.unsubscribe();
       })
     });
 

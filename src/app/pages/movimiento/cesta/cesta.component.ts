@@ -21,8 +21,9 @@ export class CestaComponent implements OnInit {
         observer.next((JSON.parse(localStorage.getItem('cartShop'))).carrito);
       }, 1000)
     })
-    obs.subscribe( numero => {
+    let x = obs.subscribe( numero => {
       this.compra = (JSON.parse(localStorage.getItem('cartShop'))).carrito;
+      x.unsubscribe();
     })
   }
 
@@ -54,9 +55,10 @@ export class CestaComponent implements OnInit {
     });
   }
   borrarCompra(item) {
-    this._srvCesta.removeItemCart(item).subscribe(res => {
+    let borrado = this._srvCesta.removeItemCart(item).subscribe(res => {
       this.compra = (JSON.parse(localStorage.getItem('cartShop'))).carrito;
       this.actualizarTotal();
+      borrado.unsubscribe();
     })
   }
 }
