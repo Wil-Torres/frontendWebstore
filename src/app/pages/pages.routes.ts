@@ -18,6 +18,7 @@ import { ListaComprasComponent } from "./movimiento/compras/lista-compras.compon
 import { NuevoEdicionComprasComponent } from "./movimiento/compras/nuevo-edicion-compras.component";
 import { ListaVentasComponent } from "./movimiento/ventas/lista-ventas.component";
 import { NuevoEdicionVentasComponent } from "./movimiento/ventas/nuevo-edicion-ventas.component";
+import { ProcesoCompraComponent } from "./movimiento/proceso-compra/proceso-compra.component";
 const pagesRoutes: Routes = [
     {
         path: '',
@@ -40,6 +41,8 @@ const pagesRoutes: Routes = [
             {path: 'opciones/lista', component: ListaOpcionesComponent, data:{titulo: 'Opciones'}},
             {path: 'pedidos', component: PedidoListaComponent, data:{titulo: 'Lista de Pedidos'}},
             {path: 'wishlist', component: WishListComponent, data:{titulo: 'Lista de Deseos'}},
+
+            {path: 'procesar', component: ProcesoCompraComponent, data:{titulo: 'Procesando Compra'}},
 
             {path: 'compras/lista-compras', component: ListaComprasComponent, data:{titulo: 'Lista de Compras'}},
             {path: 'compras/nueva-compra', component: NuevoEdicionComprasComponent, data:{titulo: 'Nueva Compra'}},

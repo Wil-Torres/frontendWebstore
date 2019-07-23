@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Route, Router } from '@angular/router';
 import { ServicioMarcaService } from 'src/app/services/servicio-marca.service';
 import { Marca } from 'src/app/interfaces/marca';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { isNil } from 'lodash'
 
 @Component({
@@ -13,25 +13,25 @@ import { isNil } from 'lodash'
       <app-boton-regresa (click)="regresar()"></app-boton-regresa>
       <app-boton-refresca *ngIf="objetoId" (click)="refrescar()"></app-boton-refresca>
       <app-boton-elimina *ngIf="objetoId" (click)="elimina()"></app-boton-elimina>
-      <app-boton-guarda (click)="guardar()"></app-boton-guarda>
+      <app-boton-guarda (click)="guardar()" [disabled]="!forma.valid"></app-boton-guarda>
     </div>
     <div class="gt-titulos-vista">
       <h2 class="titulo">Mantenimiento de marcas</h2>
       <p class="titulo d-sm-none d-none"> {{objetoId ? 'Edicion' : 'Creacion'}}</p>
     </div>
     <div class="row container">
-      <div class="col-sm-12 col-md-2 col-lg-2">
+      <div class="col-sm-12 col-md-2 col-lg-2" gtRequerido>
         <div class="form-group">
           <label for="codigoMarca">Código</label>
           <input type="text" class="form-control" id="codigoMarca" placeholder="Ingrese código"
-            formControlName="codigo">
+            formControlName="codigo" required>
         </div>
       </div>
-      <div class="col-sm-12 col-md-10 col-lg-10">
+      <div class="col-sm-12 col-md-10 col-lg-10" gtRequerido>
         <div class="form-group">
           <label for="descripcionMarca">Descripción</label>
           <input type="text" class="form-control" id="descripcionMarca" placeholder="Ingrese descripción de marca"
-            formControlName="descripcion">
+            formControlName="descripcion" required>
         </div>
       </div>
     </div>
@@ -76,8 +76,8 @@ export class MarcaNuevoEdicionComponent implements OnInit {
   objInit() {
     this._forma = this.builder.group({
       id: null,
-      descripcion: null,
-      codigo: null,
+      descripcion: [null, [Validators.required]],
+      codigo: [null, [Validators.required]],
       fechaIngreso: new Date()
     })
   }

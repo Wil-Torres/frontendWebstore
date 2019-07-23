@@ -23,6 +23,7 @@ import { BotonLimpiaComponent } from './componentes/encabezado-pagina/boton-limp
 import { CestaComponent } from "../pages/movimiento/cesta/cesta.component";
 import {NgxWebstorageModule} from 'ngx-webstorage';
 import { BsDatepickerModule } from "ngx-bootstrap/datepicker";
+import { RequeridoDirective } from './directives/gt-requerido.directive';
 
 @NgModule({
     declarations: [
@@ -42,7 +43,8 @@ import { BsDatepickerModule } from "ngx-bootstrap/datepicker";
         BotonRegresaComponent,
         BotonComponent,
         BotonLimpiaComponent,
-        CestaComponent
+        CestaComponent,
+        RequeridoDirective
     ],
     exports: [
         SidebarComponent,
@@ -60,7 +62,10 @@ import { BsDatepickerModule } from "ngx-bootstrap/datepicker";
         BotonRefrescaComponent,
         BotonRegresaComponent,
         BotonComponent,
-        CestaComponent
+        CestaComponent,
+        RequeridoDirective,
+        ReactiveFormsModule,
+        FormsModule,
     ],
     imports:[
         RouterModule,

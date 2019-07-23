@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Categoria } from 'src/app/interfaces/categoria';
-import { FormGroup, FormBuilder } from '@angular/forms';
+import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { ServicioCategoriaService } from 'src/app/services/servicio-categoria.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { isNil } from 'lodash';
@@ -20,18 +20,18 @@ import { isNil } from 'lodash';
       <p class="titulo d-sm-none d-none"> {{objetoId ? 'Edicion' : 'Creacion'}}</p>
     </div>
     <div class="row container">
-      <div class="col-sm-12 col-md-2 col-lg-2">
+      <div class="col-sm-12 col-md-2 col-lg-2" gtRequerido>
         <div class="form-group">
           <label for="codigoCategoria">Código</label>
           <input type="text" class="form-control" id="codigoCategoria" placeholder="Ingrese código"
-            formControlName="codigo">
+            formControlName="codigo" name="codigo" required>
         </div>
       </div>
-      <div class="col-sm-12 col-md-10 col-lg-10">
+      <div class="col-sm-12 col-md-10 col-lg-10" gtRequerido>
         <div class="form-group">
           <label for="descripcionCategoria">Descripción</label>
           <input type="text" class="form-control" id="descripcionCategoria" placeholder="Ingrese descripción de categoria"
-            formControlName="descripcion">
+            formControlName="descripcion" name="descripcion" required>
         </div>
       </div>
     </div>
@@ -77,8 +77,8 @@ export class NuevoEdicionCategoriaComponent implements OnInit {
   objInit() {
     this._forma = this.builder.group({
       id: null,
-      descripcion: null,
-      codigo: null,
+      descripcion: [null, [Validators.required]],
+      codigo: [null, [Validators.required]],
       fechaIngreso: new Date(),
       subCategoria: [[]],
     })

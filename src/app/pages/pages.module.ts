@@ -32,6 +32,8 @@ import { NuevoEdicionComprasComponent } from './movimiento/compras/nuevo-edicion
 import { NuevoEdicionVentasComponent } from './movimiento/ventas/nuevo-edicion-ventas.component';
 import { ListaVentasComponent } from './movimiento/ventas/lista-ventas.component';
 import { BsDatepickerModule } from "ngx-bootstrap/datepicker";
+import { DireccionComponent } from './account-setting/componentes/direccion.component';
+import { TarjetaComponent } from './account-setting/componentes/tarjeta.component';
 
 @NgModule({
     declarations: [
@@ -61,6 +63,8 @@ import { BsDatepickerModule } from "ngx-bootstrap/datepicker";
         NuevoEdicionComprasComponent,
         NuevoEdicionVentasComponent,
         ListaVentasComponent,
+        DireccionComponent,
+        TarjetaComponent,
     ],
     exports: [
         HomeComponent,
@@ -70,6 +74,8 @@ import { BsDatepickerModule } from "ngx-bootstrap/datepicker";
         MarcaNuevoEdicionComponent,
         TiendaComponent,
         ModalModule,
+        ReactiveFormsModule,
+        FormsModule
     ],
     imports: [
         SharedModule,

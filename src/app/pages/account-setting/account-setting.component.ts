@@ -4,7 +4,14 @@ import { SettingsService } from '../../services/settings/settings.service';
 @Component({
   selector: 'app-account-setting',
   templateUrl: './account-setting.component.html',
-  styles: []
+  styles: [`
+  .direccionS{
+    font-size: small
+  }
+  .direccionXS{
+    font-size: x-small
+  }
+  `]
 })
 export class AccountSettingComponent implements OnInit {
 
