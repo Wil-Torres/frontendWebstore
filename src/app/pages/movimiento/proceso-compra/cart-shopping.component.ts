@@ -26,7 +26,7 @@ import { ServicioCestaService } from 'src/app/services/servicio-cesta.service';
     <div class="row">
       <div class="table-responsive">
         <table class="table table-striped">
-          <thead>
+          <thead class="bg-primary text-light">
             <tr>
               <th>Nombre del Producto</th>
               <th>Cantidad</th>

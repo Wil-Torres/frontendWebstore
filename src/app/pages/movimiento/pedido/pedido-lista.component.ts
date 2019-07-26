@@ -13,7 +13,7 @@ import { PedidoModalComponent } from './pedido-modal.component';
   <div class="col-md-12 col-sm-12 col-xs-12">
       <div class="table-responsive">
         <table class="table table-striped table-sm">
-          <thead>
+          <thead class="bg-primary text-light">
             <tr>
               <th class="gt-wd-100 text-center">Orden #</th>
               <th class="gt-wd-100 text-center">Fecha de Compra</th>

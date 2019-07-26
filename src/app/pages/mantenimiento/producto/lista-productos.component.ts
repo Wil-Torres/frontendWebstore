@@ -17,7 +17,7 @@ import { ServicioProductoService } from 'src/app/services/servicio-producto.serv
     <div class="col-md-12 col-sm-12 col-xs-12">
       <div class="table-responsive">
         <table class="table table-striped table-sm">
-          <thead>
+          <thead class="bg-primary text-light">
             <tr>
               <th class="gt-wd-25 text-center">Código</th>
               <th>Descripción</th>

@@ -63,8 +63,6 @@
 .mr-1 {
     margin-right: .25rem!important;
 }
-.gt-titulos-vista {
-}
 
 .gt-titulos-vista h1, .gt-titulos-vista h2, .gt-titulos-vista h3, .gt-titulos-vista h4, .gt-titulos-vista h5, .gt-titulos-vista h6 {
     color: #337ab7;
@@ -109,7 +107,7 @@
   }
   
   ::-webkit-scrollbar-thumb {
-    background: $gray-300;
+    background: gray -300;
     cursor: pointer;
   }
   
@@ -201,5 +199,9 @@
     width: 100%!important;
     padding-left: 3rem!important;
     padding-right: 3rem!important;
+  }
+
+  .noVisible{
+    visibility: hidden !important;
   }
   

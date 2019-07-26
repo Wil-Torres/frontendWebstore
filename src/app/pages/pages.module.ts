@@ -34,6 +34,7 @@ import { ListaVentasComponent } from './movimiento/ventas/lista-ventas.component
 import { BsDatepickerModule } from "ngx-bootstrap/datepicker";
 import { DireccionComponent } from './account-setting/componentes/direccion.component';
 import { TarjetaComponent } from './account-setting/componentes/tarjeta.component';
+import { PreviewProductoComponent } from './mantenimiento/producto/componenetes/preview-producto/preview-producto.component';
 
 @NgModule({
     declarations: [
@@ -65,6 +66,7 @@ import { TarjetaComponent } from './account-setting/componentes/tarjeta.componen
         ListaVentasComponent,
         DireccionComponent,
         TarjetaComponent,
+        PreviewProductoComponent,
     ],
     exports: [
         HomeComponent,
@@ -87,7 +89,9 @@ import { TarjetaComponent } from './account-setting/componentes/tarjeta.componen
         BsDatepickerModule.forRoot()
     ],
     entryComponents: [
-        PedidoModalComponent
+        PedidoModalComponent,
+        DireccionComponent,
+        TarjetaComponent,
     ]
 })
 

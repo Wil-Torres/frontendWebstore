@@ -4,6 +4,7 @@ import { ServicioMarcaService } from 'src/app/services/servicio-marca.service';
 import { ServicioMedidaService } from 'src/app/services/servicio-medida.service';
 import { ServicioProductoService } from 'src/app/services/servicio-producto.service';
 import { ServicioCestaService } from 'src/app/services/servicio-cesta.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-home',
@@ -61,7 +62,8 @@ export class HomeComponent implements OnInit {
 
   constructor(private srv_categoria: ServicioCategoriaService,
     private srv_marca: ServicioMarcaService, private srv_medida: ServicioMedidaService,
-    private srv_producto: ServicioProductoService, private srv_cesta: ServicioCestaService) { }
+    private srv_producto: ServicioProductoService, private srv_cesta: ServicioCestaService,
+    private router: Router) { }
 
   ngOnInit() {
     this.compra = (JSON.parse(localStorage.getItem('cartShop'))).carrito;
@@ -106,6 +108,9 @@ export class HomeComponent implements OnInit {
     this.srv_cesta.addItemCart(item).subscribe(res => {
       this.compra = (JSON.parse(localStorage.getItem('cartShop'))).carrito;
     })
+  }
+  preview(id:string) {
+    this.router.navigate(['producto/preview', id]);
   }
 
 }
