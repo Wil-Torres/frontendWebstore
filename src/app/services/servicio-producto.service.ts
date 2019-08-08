@@ -16,7 +16,9 @@ export class ServicioProductoService {
     this._paginacion = v;
   }
 
-  constructor(private afs: AngularFirestore) { }
+  constructor(private afs: AngularFirestore) {
+    this.getPaginacionProductos();
+   }
   getPaginacionProductos() {
     this.afs.collection('productos').valueChanges().subscribe(resp => {
       this._paginacion = {
@@ -28,14 +30,14 @@ export class ServicioProductoService {
   getProductos(offset: any, limit: any) { 
     this.productoCollection = this.afs.collection('productos')
     return this.productoCollection.get().toPromise().then((snapshot) => {
-      var last = snapshot.docs[offset];
+      var last = snapshot.docs[offset - 1];
       // Construct a new query starting at this document.
       // Note: this will not have the desired effect if multiple
       // productos marcas have the exact same population value.
       if (offset) {
-        var next = this.afs.collection('productos', ref => ref.startAfter(last).limit(limit))
+        var next = this.afs.collection('productos', ref => ref.startAfter(last).limit((limit)))
       } else {
-        var next = this.afs.collection('productos', ref => ref.limit(limit));
+        var next = this.afs.collection('productos', ref => ref.limit((limit)));
       }
       // Use the query for pagination
       // [START_EXCLUDE]

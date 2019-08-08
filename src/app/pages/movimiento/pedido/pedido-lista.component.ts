@@ -5,6 +5,7 @@ import { ServicioPedidosService } from 'src/app/services/servicio-pedidos.servic
 import { Pedido } from 'src/app/interfaces/pedido';
 import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
 import { PedidoModalComponent } from './pedido-modal.component';
+import { PdfMakeWrapper } from 'pdfmake-wrapper';
 
 
 @Component({
@@ -82,6 +83,7 @@ export class PedidoListaComponent implements OnInit {
         })
         this.objeto = res
         this._numeroRegistros = this._api.paginacion.totalRegistros
+        this.generarArchivoPdf();
       })
     })
   }
@@ -104,6 +106,66 @@ export class PedidoListaComponent implements OnInit {
   }
   get filtroBusqueda() {
     return this._filtroBusqueda;
+  }
+
+  generarArchivoPdf() {
+    let cuerpo = [
+      [{ text: 'Orden #', style: 'tableHeader' },
+      { text: 'Fecha de Compra', style: 'tableHeader' },
+      { text: 'Estado', style: 'tableHeader' },
+      { text: 'Total', style: 'tableHeader' }
+      ]
+    ];
+    this.objeto.forEach(element => {
+      cuerpo.push([element.pedidoNumero, element.fecha.toDate().fechaEstandar('/'), element.estadoDes, element.monto.round(2)])
+    });
+
+    console.log(cuerpo);
+
+    const pdf: PdfMakeWrapper = new PdfMakeWrapper();
+
+    pdf.add(
+      { text: 'Tables', style: 'header' });
+    pdf.add({
+      style: 'tableExample',
+      table: {
+        headerRows: 1,
+        widths: [150, 75, 100, 100],
+        body: cuerpo
+      },
+      layout: 'headerLineOnly'
+    })
+    pdf.styles({
+      header: {
+        fontSize: 8,
+        bold: true,
+        'margin-left' : 0,
+        'margin-right': 0,
+        'margin-top': 0,
+        'margin-bottom': 10
+      },
+      subheader: {
+        fontSize: 8,
+        bold: true,
+        'margin-left' : 0,
+        'margin-right': 10,
+        'margin-top': 0,
+        'margin-bottom': 5
+      },
+      tableExample: {
+        'margin-left' : 0,
+        'margin-right': 5,
+        'margin-top': 0,
+        'margin-bottom': 15
+      },
+      tableHeader: {
+        bold: true,
+        fontSize: 8,
+        color: 'white',
+        fillColor: '#337ab7',
+      }
+    })
+    pdf.create().open();
   }
 
 }

@@ -24,6 +24,9 @@ import { CestaComponent } from "../pages/movimiento/cesta/cesta.component";
 import {NgxWebstorageModule} from 'ngx-webstorage';
 import { BsDatepickerModule } from "ngx-bootstrap/datepicker";
 import { RequeridoDirective } from './directives/gt-requerido.directive';
+import { FileUploadComponent } from './componentes/file-upload/file-upload.component';
+import { UploadDirective } from './directives/upload.directive';
+import { FooterComponent } from './footer/footer.component';
 
 @NgModule({
     declarations: [
@@ -44,11 +47,15 @@ import { RequeridoDirective } from './directives/gt-requerido.directive';
         BotonComponent,
         BotonLimpiaComponent,
         CestaComponent,
-        RequeridoDirective
+        RequeridoDirective,
+        FileUploadComponent,
+        UploadDirective,
+        FooterComponent
     ],
     exports: [
         SidebarComponent,
         HeaderComponent,
+        FooterComponent,
         BreadcrumbsComponent,
         NopagefoundComponent,
         EncabezadoPaginaComponent,
@@ -64,6 +71,8 @@ import { RequeridoDirective } from './directives/gt-requerido.directive';
         BotonComponent,
         CestaComponent,
         RequeridoDirective,
+        FileUploadComponent,
+        UploadDirective,
         ReactiveFormsModule,
         FormsModule,
     ],

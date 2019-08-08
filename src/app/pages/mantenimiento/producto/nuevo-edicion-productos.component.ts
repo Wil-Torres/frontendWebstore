@@ -4,6 +4,7 @@ import { FormGroup, FormBuilder } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ServicioProductoService } from 'src/app/services/servicio-producto.service';
 import { isNil } from 'lodash';
+import swal from 'sweetalert';
 
 @Component({
   selector: 'app-nuevo-edicion-productos',
@@ -12,6 +13,7 @@ import { isNil } from 'lodash';
 })
 export class NuevoEdicionProductosComponent implements OnInit {
   private _objeto: Producto;
+  path: string = '';
   private _objetoId: any = this._router.snapshot.paramMap.get('id');
   optNew: any;
   private _forma: FormGroup;
@@ -38,6 +40,7 @@ export class NuevoEdicionProductosComponent implements OnInit {
     private _api: ServicioProductoService, public builder: FormBuilder) {
     this.objInit();
     if (this.objetoId) {
+      this.path = this.objetoId;
       this.obtenerProducto()
     }
   }
@@ -64,32 +67,32 @@ export class NuevoEdicionProductosComponent implements OnInit {
   }
   guardar() {
     if (!this.forma.value.codigo || !this.forma.value.descripcion || this.forma.value.codigo === null || this.forma.value.descripcion === null) {
-      console.error('Falta informacion, verificar datos.');
+      swal('Ocurrio un error', 'Falta informacion, verificar datos.', 'error').then(() => {});
       return;
     }
 
     if (!isNil(this.forma.value.id)) {
       this._api.updateProducto(this.forma.getRawValue()).then(res => {
-        console.log(`Producto ${this.forma.value.descripcion} Acualizado`);
-      }).catch(err => {
-        console.log(err);
+        swal('Actualización', 'Se ha acutalizado producto', 'success').then(() => {});
+      }).catch((err:any) => {
+        swal('Ocurrio un error', err, 'error').then(() => {});
       })
 
     } else {
       this._api.addProductos(this.forma.getRawValue()).then(producto => {
         producto.update({ id: producto.id }).then(actualizado => {
-          console.log(`producto ${this.forma.value.descripcion} creada`);
-          this.router.navigate(['/productos/edicion-producto/', producto.id])
+          swal('Nuevo registro', 'Se ha creado el producto ' + this.forma.value.descripcion  , 'success').then(() => {
+            this.router.navigate(['/productos/edicion-producto/', producto.id])
+          });
         })
       }).catch(err => {
-        console.log(err)
+        swal('Ocurrio un error', err, 'error').then(() => {});
       })
     }
   }
   obtenerProducto() {
     this._api.getProducto(this._objetoId).subscribe(resp => {
-      console.log(resp);
-      this._forma.patchValue(resp, { emitEvent: false })
+      this._forma.patchValue(resp, { emitEvent: true })
     })
   }
   regresar() {
@@ -105,7 +108,7 @@ export class NuevoEdicionProductosComponent implements OnInit {
     this._api.removeProducto(this.forma.value).then(producto => {
       this.router.navigate(['/productos/lista-productos']);
     }, err => {
-      console.error(err);
+      swal('Ocurrio un error', err, 'error').then(() => {});
     })
   }
 

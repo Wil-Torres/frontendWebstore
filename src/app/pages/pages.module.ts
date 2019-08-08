@@ -35,6 +35,8 @@ import { BsDatepickerModule } from "ngx-bootstrap/datepicker";
 import { DireccionComponent } from './account-setting/componentes/direccion.component';
 import { TarjetaComponent } from './account-setting/componentes/tarjeta.component';
 import { PreviewProductoComponent } from './mantenimiento/producto/componenetes/preview-producto/preview-producto.component';
+import { BusquedaComponent } from './busqueda/busqueda.component';
+import { ConfiguracionBusquedaComponent } from './busqueda/configuracion-busqueda.component';
 
 @NgModule({
     declarations: [
@@ -67,6 +69,8 @@ import { PreviewProductoComponent } from './mantenimiento/producto/componenetes/
         DireccionComponent,
         TarjetaComponent,
         PreviewProductoComponent,
+        BusquedaComponent,
+        ConfiguracionBusquedaComponent,
     ],
     exports: [
         HomeComponent,
@@ -87,12 +91,14 @@ import { PreviewProductoComponent } from './mantenimiento/producto/componenetes/
         ReactiveFormsModule,
         ModalModule.forRoot(),
         BsDatepickerModule.forRoot()
+        
     ],
     entryComponents: [
         PedidoModalComponent,
         DireccionComponent,
         TarjetaComponent,
-    ]
+    ],
+    bootstrap: [PagesComponent]
 })
 
 export class PagesModule {}
