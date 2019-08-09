@@ -116,4 +116,17 @@ export class ServicioProductoService {
     });
     return this.productoCollection.valueChanges()
   }
+
+
+  /* ******************************************************************* */
+  /* ********************* TOP DE MARKETING **************************** */
+  /* ******************************************************************* */
+  getTopProducto() { 
+    return this.afs.collection('topMarketing').doc('topProductos').valueChanges();
+  }
+  updateTopProducto(producto: any) { 
+    return this.afs.collection('topMarketing').doc('topProductos').update(producto)
+  }
+
+
 }

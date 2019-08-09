@@ -71,6 +71,7 @@ function init_plugins () {
         // Right sidebar options
         // ============================================================== 
         $(".right-side-toggle").click(function() {
+            console.log('hola')
             $(".right-sidebar").slideDown(50);
             $(".right-sidebar").toggleClass("shw-rside");
         });

@@ -1,0 +1,62 @@
+<div class="d-flex justify-content-around" style="z-index: 999999999999999;">
+  <div class="card" class="w-100">
+    <div class="modal-content">
+      <div class="modal-header bg-primary text-white d-flex justify-content-left">
+        <h4 class="modal-title flex-grow-1 text-center">{{'Busqueda de Productos'}}</h4>
+        <app-boton claseColor="btn-light" claseIcono="fa-times" titulo="Cerrar" (clic)="cancelar()"></app-boton>
+      </div>
+      <div class="modal-body">
+        <app-busqueda-lista *ngIf="filtros?.length > 0" [filtros]="filtros"
+          [campoInicial]="campoInicial" (busqueda)="buscar()"></app-busqueda-lista>
+        <div class="table-responsive">
+          <table class="table table-hover">
+            <thead>
+              <tr class="bg-primary text-white">
+                <th class="gt-wd-25 text-center"></th>
+                <th>{{'Producto'}}</th>
+                <th class="gt-wd-125">{{'Precio'}}</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let registroG of listaG" (click)="seleccionar(registroG)">
+                <td class="text-center gt-w-25 flex-grow-0">
+                  <i [ngClass]="registroG.seleccionado?'fa fa-check-circle-o text-success':'fa fa-circle-o'">
+                  </i>
+                </td>
+                <td>{{registroG.nombre}}</td>
+                <td>{{registroG.precio}}</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <div class="modal-footer d-flex justify-content-center">
+        <app-paginacion (paginacion)="buscar($event.offset, $event.limit)" [totalItems]="totalItems"></app-paginacion>
+      </div>
+    </div>
+  </div>
+  <div class="card w-40" *ngIf="listaG.length">
+    <div class="card-header text-center">
+      <button class="btn btn-primary btn-lg btn-block" (click)="agregar()">Agregar</button>
+    </div>
+    <div class="card-body">
+      <table class="table table-hover">
+        <tr *ngFor="let reg of regSeleccionados, let index = index">
+          <td><button (click)="eliminar(reg,index)" title="Borrar" class="btn btn-danger btn-sm">
+              <i class="fa fa-trash"></i>
+            </button></td>
+          <td class="text-muted small text-uppercase">
+            <ng-container *ngIf="camposMostrar.length === 0">
+              {{reg.id}} {{reg?.descripcion | slice : 1 : 50}}{{reg?.descripcion?.length > 50 ? '...' : ''}}
+            </ng-container>
+            <ng-container *ngIf="camposMostrar.length !== 0">
+              <ng-container *ngFor="let mostrar of camposMostrar">
+                {{reg[mostrar]}}
+              </ng-container>
+            </ng-container>
+          </td>
+        </tr>
+      </table>
+    </div>
+  </div>
+</div>

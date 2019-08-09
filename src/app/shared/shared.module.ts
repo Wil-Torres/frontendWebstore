@@ -1,4 +1,4 @@
-import { NgModule } from "@angular/core";
+import { NgModule, ɵwhenRendered } from "@angular/core";
 import { SidebarComponent } from "./sidebar/sidebar.component";
 import { HeaderComponent } from "./header/header.component";
 import { BreadcrumbsComponent } from "./breadcrumbs/breadcrumbs.component";
@@ -27,6 +27,8 @@ import { RequeridoDirective } from './directives/gt-requerido.directive';
 import { FileUploadComponent } from './componentes/file-upload/file-upload.component';
 import { UploadDirective } from './directives/upload.directive';
 import { FooterComponent } from './footer/footer.component';
+import { BusquedaTopCategoriasComponent } from './componentes/busqueda-top-categorias/busqueda-top-categorias.component';
+import { BusquedaTopProductosComponent } from './componentes/busqueda-top-productos/busqueda-top-productos.component';
 
 @NgModule({
     declarations: [
@@ -50,7 +52,9 @@ import { FooterComponent } from './footer/footer.component';
         RequeridoDirective,
         FileUploadComponent,
         UploadDirective,
-        FooterComponent
+        FooterComponent,
+        BusquedaTopCategoriasComponent,
+        BusquedaTopProductosComponent
     ],
     exports: [
         SidebarComponent,
@@ -73,6 +77,8 @@ import { FooterComponent } from './footer/footer.component';
         RequeridoDirective,
         FileUploadComponent,
         UploadDirective,
+        BusquedaTopCategoriasComponent,
+        BusquedaTopProductosComponent,
         ReactiveFormsModule,
         FormsModule,
     ],
@@ -85,6 +91,9 @@ import { FooterComponent } from './footer/footer.component';
         ModalModule.forRoot(),
         NgxWebstorageModule.forRoot(),
         BsDatepickerModule.forRoot()
+    ],
+    entryComponents: [
+        BusquedaTopProductosComponent,
     ]
 })
 export class SharedModule {}

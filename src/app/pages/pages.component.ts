@@ -2,7 +2,11 @@ import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../services/autentication/auth.service';
 import { isNil } from 'lodash';
 import { PdfMakeWrapper } from 'pdfmake-wrapper';
+import { BsModalService, BsModalRef } from 'ngx-bootstrap/modal';
+import { BusquedaTopProductosComponent } from '../shared/componentes/busqueda-top-productos/busqueda-top-productos.component';
+
 declare function init_plugins();
+var $$;
 
 @Component({
   selector: 'app-pages',
@@ -11,9 +15,10 @@ declare function init_plugins();
 })
 export class PagesComponent implements OnInit {
   private loggin: boolean = false;
+  private modalRef: BsModalRef;
   var = 'xuz'
 
-  constructor(private srvAuth: AuthService) {
+  constructor(private srvAuth: AuthService, private modalService: BsModalService) {
     this.srvAuth.user.subscribe(auth => {
       if (auth == null) {
         let barraIzquierda: any = document.getElementById('idSidebar');
@@ -58,7 +63,7 @@ export class PagesComponent implements OnInit {
       header: {
         fontSize: 18,
         bold: true,
-        'margin-left' : 0,
+        'margin-left': 0,
         'margin-right': 0,
         'margin-top': 0,
         'margin-bottom': 10
@@ -66,13 +71,13 @@ export class PagesComponent implements OnInit {
       subheader: {
         fontSize: 16,
         bold: true,
-        'margin-left' : 0,
+        'margin-left': 0,
         'margin-right': 10,
         'margin-top': 0,
         'margin-bottom': 5
       },
       tableExample: {
-        'margin-left' : 0,
+        'margin-left': 0,
         'margin-right': 5,
         'margin-top': 0,
         'margin-bottom': 15
@@ -97,6 +102,15 @@ export class PagesComponent implements OnInit {
     if (!isNil(panelCentral)) {
       panelCentral.classList.add('page-wrapper');
     }
+  }
+
+  adminBanners() {
+    const opciones = {
+      initialState: {},
+      class: 'modal-lg'
+    };
+    this.modalRef = this.modalService.show(BusquedaTopProductosComponent, opciones);
+
   }
 
 }
