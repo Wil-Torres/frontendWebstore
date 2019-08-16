@@ -31,8 +31,15 @@
         <div class="slimscrollright">
           <div class="rpanel-title"> Service Panel <span><i class="ti-close right-side-toggle"></i></span> </div>
           <div class="r-panel-body" #dynamicComponentContainer>
+            <form>
+              <div class="form-group">
+                <label for="exampleFormControlFile1">Cargar Fondo</label>
+                <input type="file" class="form-control-file" id="exampleFormControlFile1">
+              </div>
+            </form>
             <div id="list-example" class="list-group">
-              <h6>Administrar Banners <span class="btn btn-primary btn-sm text-light float-right" (click)="adminBanners()"><i class="fa fa-plus"></i></span></h6>
+              <h6>Administrar Banners <span class="btn btn-primary btn-sm text-light float-right"
+                  (click)="adminBanners()"><i class="fa fa-plus"></i></span></h6>
               <a class="list-group-item list-group-item-action" href="#list-item-1">Item 1</a>
               <a class="list-group-item list-group-item-action" href="#list-item-2">Item 2</a>
               <a class="list-group-item list-group-item-action" href="#list-item-3">Item 3</a>

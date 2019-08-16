@@ -69,9 +69,15 @@ export class HomeComponent implements OnInit {
   private _marcas: any[] = [];
   private _medidas: any[] = [];
   private _productos: any[] = [];
+  private _topProductos : any[] = [];
   orden: any;
-
-
+  
+  public get topProductos() : any[] {
+    return this._topProductos;
+  }
+  public set topProductos(v : any[]) {
+    this._topProductos = v;
+  }
   public get productos(): any[] {
     return this._productos;
   }
@@ -131,6 +137,8 @@ export class HomeComponent implements OnInit {
       })
     });
 
+    this.cargarTop();
+
   }
   ordenarProductos(orden: string) {
     this.srv_producto.obtenerProducto(orden, null, null).subscribe(resp => {
@@ -152,6 +160,13 @@ export class HomeComponent implements OnInit {
   }
   preview(id: string) {
     this.router.navigate(['producto/preview', id]);
+  }
+
+  cargarTop() {
+    this.srv_producto.getTopProducto().subscribe((resp: any) => {
+      console.log(resp);
+      this.topProductos = resp.productos;
+    })
   }
 
 }
