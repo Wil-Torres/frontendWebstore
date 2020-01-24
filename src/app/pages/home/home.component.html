@@ -3,17 +3,20 @@
     <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
         <div class="carousel-inner"
             style="transform: translate3d(-244px, 0px, 0px); transition: all 0.45s ease 0s; width: 1591px;">
-            <div class="carousel-item" style="width: 1798.67px;" *ngFor="let prod of topProductos; let i = index" [ngClass]="{'active': i == 0}">
+            <div class="carousel-item" style="width: 1798.67px;" *ngFor="let prod of topProductos; let i = index"
+                [ngClass]="{'active': i == 0}">
                 <div class="item">
                     <div class="container padding-top-3x">
                         <div class="row justify-content-center align-items-center">
                             <div class="col-lg-5 col-md-6 padding-bottom-2x text-md-left text-center">
                                 <div class="from-bottom"><img class="d-inline-block w-200 mb-4"
                                         src="../../../assets/images/inicio/logo01.png" alt="Converse">
-                                    <div class="h2 text-body text-normal mb-2 pt-1">{{prod.descripcion.toUpperCase() | slice: 0:23}} {{prod.descripcion.length > 25 ? '...' : ''}}</div>
+                                    <div class="h2 text-body text-normal mb-2 pt-1">
+                                        {{prod.descripcion.toUpperCase() | slice: 0:23}}
+                                        {{prod.descripcion.length > 25 ? '...' : ''}}</div>
                                     <div class="h2 text-body text-normal mb-4 pb-1">por sólo <span
                                             class="text-bold">{{prod.precio | number:'0.2-2'}}</span></div>
-                                </div><a class="btn btn-primary" (click)="preview(prod.id)">Comprar Ahora</a>
+                                </div><a class="btn btn-primary" style="color: white !important;" (click)="preview(prod.id)">Comprar Ahora</a>
                             </div>
                             <div class="col-md-6 padding-bottom-2x mb-3"><img class="d-block mx-auto"
                                     [src]="prod.imagenes[0]" alt="Chuck Taylor All Star II"></div>
@@ -127,8 +130,8 @@
                 </a>
                 <div class="card-body text-center">
                     <h4 class="card-title">Clothing</h4>
-                    <p class="text-muted">Starting from $49.99</p><a class="btn btn-outline-primary btn-sm"
-                        href="shop-grid-ls.html">View Products</a>
+                    <p class="text-muted">Starting from $49.99</p>
+                    <a class="btn btn-outline-primary btn-sm" routerLinkActive="active" routerLink="/search-items">View Products</a>
                 </div>
             </div>
         </div>

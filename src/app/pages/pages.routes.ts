@@ -21,12 +21,14 @@ import { NuevoEdicionVentasComponent } from "./movimiento/ventas/nuevo-edicion-v
 import { ProcesoCompraComponent } from "./movimiento/proceso-compra/proceso-compra.component";
 import { AuthGuard } from "../services/autentication/auth.guard";
 import { PreviewProductoComponent } from "./mantenimiento/producto/componenetes/preview-producto/preview-producto.component";
+import { BusquedaComponent } from "./busqueda/busqueda.component";
 const pagesRoutes: Routes = [
     {
         path: '',
         component: PagesComponent,
         children: [
             {path: 'home', component: HomeComponent, data:{titulo: 'Home'}},
+            {path: 'search-items', component: BusquedaComponent, data:{titulo: 'Search item'}},
             {path: 'account-settings', component: AccountSettingComponent, data:{titulo: 'Account Settings'}, canActivate: [AuthGuard]},
             {path: 'marcas/lista-marcas', component: MarcaListaComponent, data:{titulo: 'Marca'}, canActivate: [AuthGuard]},
             {path: 'marcas/nueva-marca', component: MarcaNuevoEdicionComponent, data:{titulo: 'Marca'}, canActivate: [AuthGuard]},
